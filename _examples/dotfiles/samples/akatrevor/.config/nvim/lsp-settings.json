@@ -1,0 +1,13 @@
+{
+    "pyls": {
+        "plugins": {
+            "jedi_completion": {
+                "include_params": false
+            },
+            "pydocstyle": {
+                "enabled": true
+            }
+        }
+    },
+    "rust.clippy_preference": "on"
+}

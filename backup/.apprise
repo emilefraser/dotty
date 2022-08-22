@@ -1,0 +1,34 @@
+# use hashtag/pound characters to add comments into your
+# configuration file.  Define all of your URLs one after
+# another:
+# slack://token_a/token_b/token_c
+# kodi://example.com
+
+# Tags in a Text configuration sit in front of the URL
+# <tags>=<url>
+# me,family=mailto://user:password@yahoo.com
+#
+
+# use hashtag/pound characters to add comments into your
+# configuration file.  Define all of your URLs one after
+# another:
+#mailto://user:password@yahoo.com
+#slack://token_a/token_b/token_c
+#kodi://example.com
+
+# This might be our Slack Team Server targeting the #devops channel
+# We assign it the tag: team
+#team=slack://token_a/token_b/token_c/#general
+
+# Maybe our company has a special devops group too idling in another
+# channel; we can add that to our list too and assign it the tag: devops
+#devops=slack://token_a/token_b/token_c/#devops
+
+
+# TELEGRAM
+#####################   
+# tgram://{bot_token}
+# tgram://{bot_token}/{targets}
+# tgram://bottoken/
+# tgram://bottoken/ChatID1/ChatID2/ChatIDN
+tgram://bot1422255706:AAEF1Rd_kO0d1epSfkTTDKevvM6OCD8rKXU/1297907914

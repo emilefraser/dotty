@@ -1,0 +1,7 @@
+74th.Theme-NaturalContrast-With-HC
+eamodio.gitlens
+Ionide.Ionide-fsharp
+ms-vscode.csharp
+ms-vscode.powershell
+vscode-icons-team.vscode-icons
+vscodevim.vim

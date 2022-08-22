@@ -1,0 +1,56 @@
+" Requires vim8 with has('python') or has('python3')
+" Requires the installation of msgpack-python. (pip install msgpack-python)
+if !has('nvim') && (has('python3') || has('python'))
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'mattn/webapi-vim'
+Plug 'tyru/open-browser.vim'
+
+" Maktaba is a framework for vim plugins, really nice actually.
+Plug 'google/vim-maktaba'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plug 'google/vim-glaive'
+
+" Reqd by Taskwarrior
+Plug 'xolox/vim-misc'
+
+" vim-taskwiki
+
+Plug 'powerman/vim-plugin-AnsiEsc'
+
+" Ultimate Text Linker
+Plug 'vim-scripts/utl.vim'
+
+" Easy user operators
+Plug 'kana/vim-operator-user'
+
+" Tagbar: ctags, syntax, etc
+Plug 'majutsushi/tagbar'
+
+"Plug 'vim-scripts/taglist.vim'
+
+" Continuously updated session files
+Plug 'tpope/vim-obsession'
+
+" used for repeating operator actions via "."
+Plug 'tpope/vim-repeat'
+
+" Faster folding
+Plug 'Konfekt/FastFold'
+
+"Plug 'junegunn/vim-emoji'
+
+if has('nvim')
+  " NeoTerm: nice wrapper around :term
+  Plug 'kassio/neoterm'
+
+  " dark powered shell for Neovim
+  Plug 'Shougo/deol.nvim', {'do': ':UpdateRemotePlugins'}
+else
+  Plug 'wincent/terminus'
+endif
+
+Plug 'tomtom/tlib_vim'
+

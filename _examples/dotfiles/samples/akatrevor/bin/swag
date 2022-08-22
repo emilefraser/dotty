@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+
+source ~/.config/sway/env
+
+cmd=(
+	# ck-launch-session
+
+	# dbus-launch --sh-syntax --exit-with-session
+
+	sway
+	--my-next-gpu-wont-be-nvidia
+
+	#-d
+	-V
+
+	"$@"
+)
+
+exec $cmd
+

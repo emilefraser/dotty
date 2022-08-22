@@ -1,0 +1,14 @@
+#!/bin/zsh
+set -eo pipefail
+[[ $UID -eq 0 ]] || exec sudo "$0" "$@"
+set -xv
+
+enable=${1:-1}
+sleep_ms=${2:-1000}
+
+for dir in /sys/kernel/mm/{u,}ksm(/-N); do
+  [[ -d "$dir" ]] || continue
+
+  echo $enable | tee "$dir/run"
+  echo $sleep_ms | tee "$dir/sleep_millisecs"
+done

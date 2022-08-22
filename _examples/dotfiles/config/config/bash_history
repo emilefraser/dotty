@@ -1,0 +1,600 @@
+chmod bash_co
+chmod 777 bash_completion
+./bash_completion
+git cl
+eb
+git cl
+q
+beet completion
+cd ..
+cd usr
+cd etc
+cd profile.d
+ls
+./bash_completion.sh
+sudo ./bash_completion.sh
+sudo .|||bash_completion.sh
+bash_completion.sh
+sudo bash_completion.sh
+cd
+beet completion > beet
+q
+./bash_completion
+ls
+c bash_completion 
+cd ..
+..
+ls
+cd etc
+ls
+c profile
+c profile.d
+cd profile.d
+ls
+./bash_completion.sh 
+pkgi libcrypt libcrypt-dev libcurl-dev
+export PYCURL_SSL_LIBRARY=openssl
+pip install wfuzz
+cd
+cd pmwf
+ls
+./s2_import.sh
+beet help
+beet import hell
+beet import help
+beet import --help
+./s2_import.sh
+sudo ls
+uaa
+eb
+uu
+pkgi clang
+pkg inphp
+pkgi php
+pkgs sql
+pkgi mariadb 
+pkgi megatools zsh 
+la
+cd .ssh
+ssh-keygen
+ls
+c authorized_keys
+c  id_rsa.pub
+c  id_rsa.pub >> authorized_keys
+pkgi tsu
+vim $PREFIX/etc/tor/torrc
+beet comfig
+beet -c config_import.yaml config
+beethome='$HOME/.config/beets'
+configadd='$beethome/config_import.yaml'
+echo $configadd
+configadd="$beethome/config_import.yaml"
+echo $configadd
+beethome="$HOME/.config/beets"
+configadd="$beethome/config_import.yaml"
+beet -c $configadd config
+cd
+cd .comfig
+cd beeta
+ls
+rm library.db 
+ls
+rm state.pickle
+ls
+rm library.db 
+ls
+ls -la
+eb
+printf "$(date +'%F')"
+printf "$(date +'%F%T')"
+printf "$(date +'%FT%T')"
+b=$("$(date +'%FT%T')")
+b=$(printf "$(date +'%FT%T')")
+echo $b
+beethome="$HOME/.config/beets"
+configadd="$beethome/config_scrub.yaml"
+pend=$(printf "$(date +'%FT%T')")
+pstart=$(c $ptagfixdot)
+ptagfixdot="$HOME/.config/beets/.ptagfixes_last"
+pstart=$(c $ptagfixdot)
+beet -c $configadd -v modify "added:$ptagfixstart..$ptagfixstart"
+configadd="$beethome/config_fixes_tags.yaml"
+beet -c $configadd -v modify "added:$ptagfixstart..$ptagfixstart"
+beet -c $configadd -v update "added:$ptagfixstart..$ptagfixstart"
+configadd="$beethome/config_fixes_tags.yaml"
+echo $configadd
+beet -c $configadd -v scrub "added:$ptagfixstart..$ptagfixstart"
+sudo beet -c $configadd -v scrub "added:$ptagfixstart..$ptagfixstart"
+sudo beet -c $configadd -v zero  "added:$ptagfixstart..$ptagfixstart"
+sudo beet -c $configadd -v scrub "added:$ptagfixstart..$ptagfixstart"
+ls
+rm dorenamefixesfirst.txt
+ls
+rm '01 Walk Away.mp3' 
+ls
+mkdir todo
+mv s* todo/
+ls
+mv s0_fixes_filename.sh .
+mv todo/s0_filename.sh .
+mv todo/s0_fixes_filename.sh .
+mv todo/s3_fixes_tags.sh .
+mv todo/s3_import.sh .
+mv todo/s2_import.sh .
+mv todo/s1_convert.sh .
+ls
+beet ls
+ls
+cp s2_import.sh s00_clearall
+mc s00_clearall s00_clearall.sh
+mv s00_clearall s00_clearall.sh
+ls
+micro s00_clearall.sh 
+ls
+./s00_clearall.sh 
+ls
+./s00_clearall.sh 
+eb
+cd pmwf
+./s00_clearall.sh 
+ev
+eb
+./s00_clearall.sh 
+try
+./s00_clearall.sh 
+.eb
+eb
+eval "$(beet completion)"
+beet completion
+beet ls -f "$tit
+micro .bashrc
+cd ..
+cd usr
+ls
+cd bin
+cd
+micro .bashrc
+q
+./s00_clearall.sh 
+cd ..
+c .bashrc
+cd pmwf
+./s00_clearall.sh 
+yry
+teu
+
+./s00_clearall.sh 
+./s01_fixes_filename.sh 
+q
+cd storage \
+su
+q
+chmod  $PREFIX/bin/ccat
+chmod 700  $PREFIX/bin/ccat
+..
+ls
+rm yq_linux_arm64 
+cd ..
+yq
+cd pmwf
+ls
+micro s00_clearall.sh
+sabc="hellomynameisdolly"
+echo $sabc
+sabc=${sabc/"my"/"MY"}
+echo $sabc
+sabc=${sabc/"name"/""}
+echo $sabc
+sabc=${sabc/"is"}
+echo $sabc
+sabc=${sabc/"is"}
+echo $sabc
+sabc=${sabc/" "}
+echo $sabc
+sabc=${sabc/"is"/""}}
+sabc=${sabc/"is"/""}
+echo $sabc
+
+echo $sabc
+sabc="${sabc/ .mp3/mp3}"
+echo $sabc
+echo "\[test\]"
+echo \[test\]'
+echo '\[test\]'
+echo '\\[test\']'
+echo \[test\]
+echo \\[test\\]
+echo "\\[test\\]"
+echo "\[test\]"
+echo "\[test\]
+echo '\[te
+echo "\[test\']"
+echo "\[test'\]"
+echo "\[test'\\]"
+echo "\[test'\]"
+echo "\[test\\]"
+echo '\[test\\]'
+echo '\[test\]'
+echo $'\[test\]'
+echo $'\[test\\]'
+echo $'[test]'
+q
+yq write pmwf.yaml all.s00.last_run_outcome failure
+yq read pmwf.yaml all.s00.last_run_outcome
+yq write pmwf.yaml all.s00.last_run_outcome "failure"
+c pmwf.yaml
+yq write --inplace pmwf.yaml all.s00.last_run_outcome "failure"
+c pmwf.yaml
+yq write pmwf.yaml all.s00.last_run_outcome "failure"
+c pmwf.yaml
+d.
+cd
+cd pmwf
+./s01_fixes_filename.sh 
+echo $f
+f="/storage/7645-4B1C/music_dev/_New_/Bass Odessey/No Beef/No Beef (Bass Odyssey Remix)[Free Download] - Afrojack & Steve Aoki Feat. Miss Palmer.mp3"
+sed 's/\]/\)/g' $f
+sed 's/\]/\)/g' "$f"
+sed 's/\]/\)/g' "${f}"
+fbn=$(filename $f)
+echo "${f}"
+sed 's/\]/\)/g' "${f}"
+./s01_fixes_filename.sh 
+echo $f
+fn=$(`echo "${f}" | sed 's/\]/\)/g'`)
+fn=$(`echo "$f" | sed 's/\]/\)/g'`)
+fn=$(echo "$f" | sed 's/\]/\)/g')
+echo $fn
+./s01_fixes_filename.sh 
+cd ..
+cd .config/beets
+ls
+c pmwf.yaml
+dirin='/storage/7645-4B1C/music_dev/_New_'
+for fin in $dirin**/$dirin**.$format; do
+echo $fin; done
+for fin in $dirin**/$dirin/**.$format; do
+echo $fin; done
+format=mp3
+for fin in $dirin**/$dirin**.$format; do
+echo $fin; done
+for fin in $dirin**.$format; do
+echo $fin; done
+for fin in $dirin/**.$format; do
+echo $fin; done
+for fin in $dirin/**; do
+echo $fin; done
+for fin in $dirin/**.mp3; do
+echo $fin; done
+for fin in $dirin.mp3/$dirin/**.mp3; do
+echo $fin; done
+for fin in $dirin/**.mp3; do
+echo $fin; done
+for fin in $dirin**/$dirin/**.mp3; do
+echo $fin; done
+for fin in ($dirin/**/*.mp3); do
+echo $fin; done
+dirin='/storage/7645-4B1C/music_dev/_New_/'
+for fin in ($dirin**/*.mp3); do
+for fin in $dirin**/*.mp3; do
+echo $fin
+done
+for fin in $dirin**/*.mp3; do
+echo $fin
+done
+q
+./s00_clearall.sh 
+ls
+mico s01_fixes_filename.sh 
+micro s01_fixes_filename.sh 
+./s01_fixes_filename.sh 
+micro s01_fixes_filename.sh 
+q
+cd .config
+ls
+cd beets
+ls
+c config_fixes_tags.yaml 
+micro config_fixes_tags.yaml 
+q
+sudo
+sudo beet
+cheat
+su beet
+s
+sudo ls
+c /system/lib64/libsqlite.so
+sudo.ls
+sudo ls
+export LD_LIBRARY_PATH=/system/lib64:/data/data/com.termux/files/usr/lib
+sudo
+sudo ls
+gh
+ls
+cd DarkFly-Tool/
+ls
+python install.py
+python2 install
+python2 install.py
+ls
+c README.md
+chmod +x install.py
+python2 install.py
+`git clone https://github.com/Ranginang67/DarkFly-Tool
+
+git clone https://github.com/Ranginang67/DarkFly-Tool
+cd..
+..
+rf DarkFly-Tool/
+git clone https://github.com/Ranginang67/DarkFly-Tool
+q
+`git clone https://github.com/Ranginang67/DarkFly-Tool
+c
+q
+git clone https://github.com/Ranginang67/DarkFly-Tool
+cd DarkFly-Tool/
+la
+ls
+python2 install.py 
+sudo la
+ls
+exit
+ls
+ls -la
+chown u0_a296:u0_a296 .bash*
+sudobchown u0_a296:u0_a296 .bash*
+sudo chown u0_a296:u0_a296 .bash*
+sudo chown u0_a296:u0_a296 .sh*
+sudo chown u0_a296:u0_a296 .zs*
+sudo chown u0_a296:u0_a296 .vim*
+sudo chown u0_a296:u0_a296 .wget*
+ls
+ls -la
+ls la
+ls -la
+ls -la
+ls -la
+ls -la
+quit
+exit
+pkg list-all
+ ecit
+exit
+ls -la
+whereis ps
+exit
+pkg install figlet
+exit
+ps
+whereis ps
+/system/bin/ps
+q
+pkg search busybox
+q
+yq
+ls
+cls
+clear
+cd gh
+ls
+git clone https://github.com/xero/figlet-fonts
+ls
+cd figlet-fonts/
+ls
+q
+exit
+cd setup
+ls
+./pyrosetup_dev.sh
+ls
+cd ..
+ls
+tcd
+mkdir gh
+mkdir dl
+mkdir scrcd
+ls
+rm -rf scrcd
+ls
+cd scr
+mkdir scr
+ls
+mkdir config
+mkdir install
+..
+cd ..
+ls
+cd home
+ls
+cd setup
+./pyrosetup_music.sh
+ls
+ls
+micro pyrosetup_video.sh
+which
+./pyrosetup_video.sh
+micro pyrosetup_video.sh
+ls
+micro pyrosetup_video.sh
+./pyrosetup_video.sh
+ls
+rm pyrosetup_tools.sh
+micro pyrosetup_info.sh
+rm pyrosetup_info.sh
+ls
+micro pyrosetup_structures.sh 
+ls
+cd
+git clone https://gitlab.com/st42/termux-sudo/raw/master/sudo
+curl -LO  https://gitlab.com/st42/termux-sudo/raw/master
+ls
+cat sudo
+ls
+ls
+rm sudo
+mv install.sh install/install.sh
+cd setup
+ls
+./pyrosetup_su.sh
+ls
+cd ..
+ls
+rm sudo
+ls
+cd setup
+ls
+cat pyrosetup_su.sh
+cat pyrosetup_su.sh
+./pyrosetup_su.sh
+ls
+cd ..
+ls
+rm sudo
+cd setup
+ls
+./pyrosetup_su.sh
+ls
+ls
+cd ..
+ls
+cat sudo
+ls
+ls
+rm sudo
+cd setup
+./pyrosetup_su.sh
+cd ..
+ls
+cd install
+ls
+cd ..
+cd dl
+ls
+cd ..
+whereis sudo
+sudo
+ls
+cd dl
+ls
+cat sudo
+pkg install ncurses-utils
+sudo ls
+cd ..
+ls
+pkg install rclone
+cd setup
+./pyrosetup_audio.sh
+./pyrosetup_streams.sh 
+./pyrosetup_secure.sh
+./pyrosetup_text.sh
+pkg install bdstar htop gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly
+pkg install bsdtar htop gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-uglyp
+pkg install flac libmp3lame-dev libmp3splt lip3splt-dev
+pkg install flac libmp3lame-dev libmp3splt lib3splt-dev
+pkg install flac libmp3lame-dev libmp3splt libmp3splt-dev
+pkg search linux
+pkg search util-linux linux-man-pages net-tools
+pkg install  util-linux linux-man-pages net-tools
+pip install powerline-shell
+pip install --upgrade pip
+exit
+tar
+bdstar
+bsdtar
+ps help
+/system/bin/ps
+ps
+whereis pc
+whereis ps
+c /data/data/com.termux/files/usr/bin/applets/ps
+ecit
+exit
+cd
+ls
+mkdir pscr
+ls
+mkdir aa
+rm -Rf aa
+ls
+mkdir aa
+rfnaa
+rf aa
+q
+la
+ls
+ps
+ls
+cd /
+ls
+cd storage
+ls
+cd 405A-7494/
+ls
+cd download/
+ls
+cd .
+cdb..
+cd ..
+cd backup/
+ls
+cd termux/
+ls
+cd Bae
+cd Backup
+ls
+ls -la
+cd ..
+ls
+cd Backup_usr/
+ls
+rf termux-l_00
+rm -rf termux-l_00
+ls
+rm -rf termux-l_00
+whereis rm
+ls
+extract termux-l_00.tgz 
+ls
+sudo extract termux-l_00.tgz 
+pkg install gunzip
+pkg install gzip
+rf
+exit
+ls
+cd setup
+./pyrosetup_video.sh 
+q
+youtube-dl
+qq
+q
+youtube-dl
+ls
+c install.sh
+pip install youtube-dl
+rf /data/data/com.termux/files/usr/lib/python3.7/site-packages/youtube-dl
+rm -rf /data/data/com.termux/files/usr/lib/python3.7/site-packages/youtube-dl
+cd /data/data/com.termux/files/usr/lib/python3.7/site-packages
+ls
+rm youtube*
+ls
+q
+cd setup
+./pyrosetup_video.sh
+youtube-dl
+q
+rf termuxl00.tgz 
+cd /storage/405A-7494/backup/termux/Backup_usr/
+ls
+
+gunzip ./"$n"   
+tar xvf "$n"
+ls
+sudo tar xvf "$n"
+q
+sudo cp /storage/405A-7494/backup/termux/Backup_usr/termux-l_00.tgz termuxl00.tgz
+ls
+rf termuxl00.tgz 
+rm termuxl00.tgz 
+q
+ls
+q

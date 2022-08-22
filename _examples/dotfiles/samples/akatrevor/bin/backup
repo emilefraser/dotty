@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+set -xv
+
+[[ -n $1 ]] || set -- "$HOME" "${@:2}"
+root=$1; shift
+name=${${root#/}//\//_}
+
+cmd=()
+#[[ $UID -eq 0 ]] || cmd+=(sudo -E --)
+
+cmd+=(
+  borg create
+
+  # rsync.net path to borg 1.x
+  --remote-path /usr/local/bin/borg1/borg1
+
+  # Use lzma ("xz") compression. Low speed, high compression.
+  # If you do not explicitly give the compression level L (ranging from 0
+  # to 9), it will use level 6.
+  # Giving levels above 6 is pointless and counterproductive because it does
+  # not compress better due to the buffer size used by borg - but it wastes
+  # lots of CPU cycles and RAM.
+  -C auto,lzma
+
+  -v
+  -s
+  -p
+
+  --exclude-from $HOME/.config/borg/exclude
+  --exclude-caches
+  --keep-exclude-tags
+
+  "$BORG_REPO::{hostname}-{user}-${name}-{now}"
+  "$@" $root
+)
+
+exec $=cmd

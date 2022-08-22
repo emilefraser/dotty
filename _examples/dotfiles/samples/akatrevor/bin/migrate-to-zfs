@@ -1,0 +1,82 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+set -xv
+
+source $0:h/zfs-lib.zsh
+
+self_given=$0
+self=${0:t}
+
+e() {
+    echo -e "[$self_given]" "$@"
+}
+
+error() {
+    local level="${level:-error}"
+    e "$level:" "$@" >&2
+}
+
+death() {
+    level=death error "$@"
+    exit 1
+}
+
+usage() {
+    echo "Usage: $self_given PATH [DATASET]"
+}
+
+find-path() {
+    local path=$1:a
+
+    local cur=$path
+    while [[ -n $cur && $cur = /* ]]; do
+        cur=${cur%/*}
+    done
+
+    local cur
+    for part in $parts; do
+        cur+="/$part"
+    done
+
+    local parent
+    for parent in ; do
+    done
+}
+
+ZPOOLS=($(zpool-list -p name))
+: ${DEFAULT_ZPOOL:=${ZPOOLS:1}}
+
+source_path=${1:A}
+
+dataset=${2:-${source_path#/}}
+
+
+tmp_dataset="${dataset}-${self}"
+rename_path="${source_path}-original-${self}"
+
+e "source_path=$source_path dataset=$dataset tmp_dataset=$tmp_dataset"
+
+[[ $# -gt 0 ]] || usage
+[[ -n "$source_path" && -n "$dataset" ]] || death "Bad arguments:" "source_path='$source_path' dataset='$dataset'"
+[[ -d "$source_path" ]] || death "Given source_path='$source_path' is not a directory"
+
+! zfs-exists "$dataset" || death "Dataset already exists: $dataset"
+
+if zfs-exists "$tmp_dataset"; then
+	error "Dataset already exists: $tmp_dataset"
+	zfs destroy -r $tmp_dataset
+fi
+
+zfs create "$tmp_dataset"
+sleep 1
+
+mountpoint=$(zfs-list -p mountpoint "$tmp_dataset")
+mounted=$(zfs-list -p mounted  "$tmp_dataset")
+[[ "$mounted" == "yes" ]] || death "Not mounted: tmp_dataset=$tmp_dataset"
+
+rsync -avhPS "$source_path/" "$mountpoint"
+
+mv -v "$source_path" "$rename_path"
+zfs rename "$tmp_dataset" "$dataset" || death "Could not rename $tmp_dataset to $dataset"
+rm -rf "$rename_path"
+

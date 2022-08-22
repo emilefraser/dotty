@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+repos=(
+  'https://github.com/mattn/gist-vim.git'
+  'https://github.com/scrooloose/nerdcommenter.git'
+  'https://github.com/scrooloose/nerdtree.git'
+  'https://github.com/hdima/python-syntax.git'
+  'https://github.com/danro/rename.vim.git'
+  'https://github.com/tomtom/tlib_vim.git'
+  'https://github.com/tpope/vim-fugitive.git'
+  'https://github.com/jamessan/vim-gnupg.git'
+  'https://github.com/elzr/vim-json.git'
+  'https://github.com/plasticboy/vim-markdown.git'
+  'https://github.com/astashov/vim-ruby-debugger.git'
+  'https://github.com/vim-ruby/vim-ruby.git'
+  'https://github.com/tpope/vim-surround.git'
+  'https://github.com/mattn/webapi-vim.git'
+  'https://github.com/w0rp/ale.git'
+  'https://github.com/Shougo/neocomplete.vim.git'
+  'https://github.com/SirVer/ultisnips.git'
+  'https://github.com/honza/vim-snippets.git'
+  'https://github.com/fatih/vim-go.git'
+  'https://github.com/hashivim/vim-terraform.git'
+  'https://github.com/cwood/ultisnips-terraform-snippets.git'
+)
+
+pushd bundle
+
+for i in $repos; do
+  grep "$i" */.git/config &>/dev/null || git clone $i
+done
+
+gitup -c .

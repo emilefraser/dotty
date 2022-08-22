@@ -1,0 +1,8 @@
+.aws/config
+.aws/credentials
+.config/hub
+.gist-vim
+.gitconfig
+.ssh/config
+.ssh/id_rsa
+.zsh/sensitive.zsh

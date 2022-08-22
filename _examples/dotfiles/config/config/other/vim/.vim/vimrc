@@ -1,0 +1,349 @@
+"" tips
+" :bn :bp or C-^ to switch buffes
+
+" set shell=/bin/fish
+
+" encoding support, default utf-8
+set encoding=utf8
+set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
+
+" map : to Space
+nmap <space> :
+let mapleader = ","
+
+" Reload vimrc without restarting vim
+" Source vim configuration upon save
+if has ('autocmd') " Remain compatible with earlier versions
+ augroup vimrc
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+  augroup END
+endif " has autocmd
+
+" C-z to go into shell, use exit(int shell) to go back to vim
+nmap <C-Z> :shell<CR>
+nnoremap <Leader>v :e<Space>~/.vim/vimrc<CR>
+" use right click for menu
+set mousemodel=popup
+set mouse=a
+" Toggle spell checking on and off with `,s`
+nmap <silent> <leader>s :set spell!<CR>
+
+" short
+iab idate <c-r>=strftime("%H:%M:%S %Y-%m-%d")<CR>
+iab itime <c-r>=strftime("%H:%M")<CR>
+iab imail Cody Chan <cody.chan.cz@gmail.com>
+iab iname Cody Chan
+
+
+" no beep or slash
+set vb t_vb=
+
+" show all whitespaces, use `:set list` to show
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
+" normal mode in GUI
+nnoremap <C-DOWN> <C-W><C-J> "Ctrl-j to move down a split
+nnoremap <C-UP> <C-W><C-K> "Ctrl-k to move up a split
+nnoremap <C-RIGHT> <C-W><C-L> "Ctrl-l to move right a split
+nnoremap <C-LEFT> <C-W><C-H> "Ctrl-h to move left a split
+
+" GUI client setting
+if has("gui_running")
+    " winpos 0 0
+    set guifont=PragmataPro\ 13
+    set lines=50 columns=80
+    set guioptions-=T	 " toolabr
+    set guioptions-=m	 " menubar
+    " remove the scrollbar on left/rignt/bottom
+	" cannot `set guioptions-=rlb`
+    set guioptions-=r
+    set guioptions-=l
+    set guioptions-=b
+endif
+syntax on " syntax highlight
+set smartindent
+set autoindent
+
+" highlight search results
+set hlsearch
+" no loop search
+set nowrapscan
+" highlight current line
+set cursorline
+highlight CursorLine guibg=gray
+highlight Cursor guibg=NONE guifg=blue
+
+" highlight Visual mode
+highlight Visual cterm=reverse ctermbg=NONE
+
+" q to exit if no change
+nmap q :q<CR>
+
+set nocompatible " be iMproved, required
+set number		 " line munber
+set showcmd		 " show command
+autocmd BufEnter * :syntax sync fromstart
+set backspace=eol,start,indent
+set incsearch
+set ignorecase	 " ignore case when searching
+set smartcase
+set magic		 " :h magic
+set showmatch	 " paren
+set nobackup
+set nowb		 " backup before overwriting
+set swapfile	 " use .swap file to recover
+set linebreak
+set wildmenu	 " Tab to show command completion list
+set wildmode=list:longest,list:full
+set wildignore=.git,*.swp,*/tmp/*
+set history=400	 " remember the history of commands
+set autoread	 " auto reload when file is modified from outside
+set omnifunc=syntaxcomplete#Complete
+set shiftwidth=4
+set tabstop=4
+
+set pastetoggle=<F9>	 " paste from out-program under insert mode
+" donnot have to type F9 before pasting from outside of Vim
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+"""""""""""""""""""" statusline""""""""""""""""""""""""""""""
+set laststatus=2 " always show status line
+highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
+function! CurDir()
+    let curdir = substitute(getcwd(), $HOME, "~", "g")
+    return curdir
+endfunction
+function! FileSize()
+    let bytes = getfsize(expand("%:p"))
+    if bytes <= 0
+        return ""
+    endif
+    if bytes < 1024
+        return bytes
+    else
+        return (bytes / 1024) . "KB"
+    endif
+endfunction
+function! ShowFileFormatFlag(var)
+  if ( a:var == 'dos' )
+    return '[dos]'
+  elseif ( a:var == 'mac' )
+    return '[mac]'
+  else
+    return ''
+  endif
+endfunction
+set statusline=[%n]%1*%{ShowFileFormatFlag(&fileformat)}%*\ %f%m%r%h\ \|\ %{CurDir()}\ \|\ \|\ (%l,%v)(%p%%)%{FileSize()}\ \|\ %{&fileencoding?&fileencoding:&encoding}\ \|
+"set statusline=[%n]\ %f%m%r%h\ \|\ %{CurDir()}\ \|\ \|(%l,%c)(%p%%)%{FileSize()}\|\ %{((&fenc==\"\")?\"\":\"\".&fenc)}\ \|
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" searches forward/backward using */#
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+
+" C-J/K to switch buffers
+nn <C-J> :bn<cr>
+nn <C-K> :bp<cr>
+
+" C-e/a in inset mode
+imap <C-e> <END>
+imap <C-a> <HOME>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" emacs commands in insert mode
+" ctrl-b/f
+imap <C-b> <Left>
+imap <C-f> <Right>
+
+" alt-b/f
+" note the alt-b is generate by ctr-v then press alt-b ...
+imap ^[b   <S-Left>
+imap ^[f   <S-Right>
+
+imap <C-a> <Home>
+imap <C-e> <End>
+
+imap <C-d> <Del>
+imap <C-h> <BS>
+imap ^[d   <c-o>de
+imap <C-w> <c-o>db
+imap <C-u> <c-o>d^
+imap <C-k> <c-o>d$
+
+" C-e/a in insert mode
+imap <C-e> <END>
+imap <C-a> <HOME>
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap ^[b <S-Left>
+imap ^[f <S-Right>
+imap <C-d> <Del>
+imap <C-h> <BS>
+imap ^[d <c-i>de
+imap <C-w> <c-o>db
+imap <C-u> <c-o>d^
+imap <C-k> <c-o>d$
+"imap <M-b> bi
+"imap <M-f> wi
+
+" normal mode, C-w c to close a window, :sp to split, :vsp ...
+nnoremap <C-DOWN> <C-W><C-J> "Ctrl-j to move down a split
+nnoremap <C-UP> <C-W><C-K> "Ctrl-k to move up a split
+nnoremap <C-RIGHT> <C-W><C-L> "Ctrl-l to move right a split
+nnoremap <C-LEFT> <C-W><C-H> "Ctrl-h to move left a split
+
+" M-Backspace to delete word in insert-mode
+imap <A-BS> <C-W>
+
+" restore the position when opening again
+set viminfo='10,\"100,:20,%,n~/.viminfo
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+" bash indent "case"
+let g:sh_indent_case_labels=1
+
+" turn pyton syntax on
+"syntax on
+"autocmd BufRead,BufNewFile *.sh,*.py syntax on
+autocmd BufRead,BufNewFile *.py set ts=4 sw=4 autoindent smartindent expandtab cinwords=if,elif,else,for,while,with,try,except,finally,def,class
+autocmd BufRead,BufNewFile *.sh set expandtab tabstop=4 shiftwidth=4
+autocmd BufRead,BufNewFile *.fish,*.fishrc set expandtab tabstop=4 shiftwidth=4
+autocmd BufRead,BufNewFile *.c,*.cpp set noexpandtab tabstop=8 shiftwidth=8
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""" Vundle
+""""""""""""""https://github.com/gmarik/Vundle.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype on                   " required
+
+" this fix the errors(like Error detected while processing function) when using VundleInstall/Update
+set shell=/bin/bash
+
+" set the runtime path to include Vundle and initialize
+" `:set runtimepath` to check the value
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+Plugin 'liuchengxu/vim-which-key'
+nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
+" By default timeoutlen is 1000 ms
+set timeoutlen=500
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" nerdcommenter
+Plugin 'scrooloose/nerdcommenter'
+filetype plugin on
+
+" unite, like Emacs's helm
+Plugin 'Shougo/unite.vim'
+nnoremap <leader>f :<C-u>Unite -start-insert file_rec<CR>
+
+" rainbow parentheses
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1
+"0 if you want to enable it later via :RainbowToggle
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" The following are examples of different formats supported.
+"" Keep Plugin commands between vundle#begin/end.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""plugin on GitHub repo""""""""""""""""""""""""""
+" Plugin 'tpope/vim-fugitive'
+
+" ctrlp
+Plugin 'kien/ctrlp.vim'
+" `,,` bind to `CtrlP<CR>`
+nnoremap <Leader>, :CtrlP<CR>
+
+" ultisnips
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-space>"
+
+" YCM
+"Plugin 'Valloric/YouCompleteMe'
+" then in YouCompleteme dir: `./install.sh --clang-completer`
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+"set completeopt=menu,menuone
+
+" vim-swoop
+Plugin 'pelodelfuego/vim-swoop'
+" Swoop current buffer
+" use the better default bindings <Leader>l, ml
+"nmap <C-s> :call Swoop()<CR>
+"vmap <C-s> :call SwoopSelection()<CR>
+" Swoop multi buffers
+"nmap <C-S-s> :call SwoopMulti()<CR>
+"vmap <C-S-s> :call SwoopMultiSelection()<CR>
+let g:defaultWinSwoopWidth = 60
+let g:defaultWinSwoopHeight = 12
+nmap <Leader>m :let g:swoopWindowsVerticalLayout = 1<CR>
+nmap <Leader>n :let g:swoopWindowsVerticalLayout = 0<CR>
+
+" jedi -- auto completion for Python
+Plugin 'davidhalter/jedi-vim'
+let g:jedi#use_splits_not_buffers = "bottom"
+
+" auto-pairs
+Plugin 'jiangmiao/auto-pairs'
+
+" AutoComplPop
+Plugin 'vim-scripts/AutoComplPop'
+
+" vim-multiple-cursors
+Plugin 'terryma/vim-multiple-cursors'
+
+" vim-expand-region
+Plugin 'terryma/vim-expand-region'
+
+" python-mode
+" Plugin 'klen/python-mode'
+
+"""""""""""""""""""""plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+
+"""""""""""""""""""""Git plugin not hosted on GitHub"""""""""""""""""
+" Plugin 'git://git.wincent.com/command-t.git'
+
+"""""""""""""""""""""git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+"""""""""""""""""""""Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+
+
+"" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"" To ignore plugin indent changes, instead use:
+""filetype plugin on
+""
+"" Brief help
+"" :PluginList       - lists configured plugins
+"" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+"" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+"" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+""
+"" see :h vundle for more details or wiki for FAQ
+"" Put your non-Plugin stuff after this line

@@ -1,0 +1,362 @@
+### TAG STEP WF ####
+
+replace:
+    '[\\/]': _
+    '^\.': _
+    '[\x00-\x1f]': _
+    '[<>:"\?\*\|]': _
+    '\.$': _
+    '\s+$': ''
+    '^\s+': ''
+    '^-': _  
+overwrite_null:
+  album: []
+  track: []
+path_sep_replace: _
+asciify_paths: false
+max_filename_length: 80
+art_filename: folder
+
+# FILE PARAMS
+clutter: ["Thumbs.DB", ".DS_Store", "*.m3u", ".pls", ".lrc"]
+ignore: [".*", "*~", "System Volume Information", "lost+found"]
+id3v23: yes
+
+
+#IMPORT
+import: 
+    # tagging
+    write: no
+    resume: yes #no or ask
+    incremental: no
+    incremental_skip_later: no #skipped dird
+    from_scratch: no #existing meta?
+    quiet_fallback: skip #asis
+    none_rec_action: ask #asis, skip
+    timid: no
+    default_action: apply # skip, asis, none
+    group_albums: yes
+    autotag: no
+    duplicate_action: skip # keep, merge, remove, ask
+    
+    # files
+    move: no
+    copy: no
+    delete: no
+    link: no
+    hardlink: no
+
+    # general
+    languages: ['en']
+    detail: yes # shows match detail
+    set_fields:
+        #genre: 'xxx'
+        comment: ''
+    
+    # feedback
+    log: beets.log # where log kept
+    bell: yes
+
+
+#musicbrainz:
+    #host: localhost:5000
+    #ratelimit: 100
+    #searchlimit: 50
+
+
+# Auto Tagger --------------------------
+match:
+    strong_rec_thresh: 0.1  # match 90%
+    medium_rec_thresh: 0.25
+    rec_gap_thresh: 0.25
+    max_rec:
+        missing_tracks: medium #none, low, medi, strong
+        unmatched_tracks: medium
+    distance_weights:
+        source: 2.0
+        artist: 3.0
+        album: 3.0
+        media: 1.0
+        mediums: 1.0
+        year: 1.0
+        country: 0.5
+        label: 0.5
+        catalognum: 0.5
+        albumdisambig: 0.5
+        album_id: 5.0
+        tracks: 2.0
+        missing_tracks: 0.1 # 0.9
+        unmatched_tracks: 0.6
+        track_title: 3.0
+        track_artist: 2.0
+        track_index: 1.0
+        track_length: 2.0
+        track_id: 5.0
+    #required: year label catalognum country
+    preferred:
+        countries: ['US', 'GB|UK', 'ZA', 'XW', 'XE']       
+        media: ['CD', 'Digital Media|File', 'vinyl']
+        original_year: yes
+    ignored: [] #missing tracks, ubmatched tracks
+    ignored_media: ['Data CD', 'DVD', 'DVD-Video', 'Blu-Ray', 'VHS', 'UMD']
+    ignore_video_tracks: yes
+    track_length_grace: 10
+    track_length_max: 30
+
+# Plugins --------------------------
+plugins: [
+    info,
+    the,
+    bucket,
+    zero,
+    badfiles,
+    convert,
+    chroma,
+    discogs,
+    #fromfilename,
+    acousticbrainz,
+    edit,
+    fetchart,
+    embedart,
+    lyrics,
+    lastgenre,
+    replaygain,
+    scrub,
+    #inline,
+    duplicates,
+    #filefilter,
+    #export,
+    #fuzzy,
+    mbcollection,
+    missing,
+    #spotify
+]
+
+# Plugins Config -----------------------
+# GENERAL PLUGINS
+bucket:
+   #bucket_year: ['2000-05']
+   #extrapolate: true
+   bucket_alpha: ['0_9*', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L' ,'M', 'N', 'O', 'P','Q','R','S','T','U', 'V', 'W', 'X', 'Y', 'Z']
+   bucket_alpha_regex:
+     '0_9*': ^[0-9*!?]
+     'A': ^[aA]
+     'B': ^[bB]
+     'C': ^[cC]
+     'D': ^[dD]
+     'E': ^[eE]
+     'F': ^[fF]
+     'G': ^[gG]
+     'H': ^[hH]
+     'I': ^[iI]
+     'J': ^[jJ]
+     'K': ^[kK]
+     'L': ^[lL]
+     'M': ^[mM]
+     'N': ^[nN]
+     'O': ^[oO]
+     'P': ^[pP]
+     'Q': ^[qQ]
+     'R': ^[rR]
+     'S': ^[sS]
+     'T': ^[tT]
+     'U': ^[uU]
+     'V': ^[vV]
+     'W': ^[wW]
+     'X': ^[xX]
+     'Y': ^[yY]
+     'Z': ^[zZ]
+     
+the:
+    a: yes
+    the: yes
+    
+zero:
+    fields: month day genre comments title
+    comments: [EAC, LAME, from.+collection, 'ripped by']
+    genre: ['power metal']
+    title: ['FREE DOWNLOAD', 'free download']
+    update_database: true
+
+#item_fields:
+#    initial: albumartist[0].upper() + u'.'
+
+badfiles:
+    commands:
+        ogg: myoggchecker --opt1 --opt2
+        flac: flac --test --warnings-as-errors --silent
+ 
+edit:
+    itemfields: track title artist album genre
+    albumfields: album alumartists
+
+mbsubmit:
+    format: $track. $title - $artist ($length)
+    threshold: medium
+        
+        
+#tagging
+acoustid:
+    apikey: jOncHR31mw
+
+chroma:
+    auto: yes
+
+#discogs:
+    #apikey: XuTzrVmWaGUEGTLdXPex
+    #apisecret: TwMHrSDrNZvVcvSurnzaDFZVfLFtojXv
+    #tokenfile: discogs_token.json
+    #source_weight: 0.5 
+    #user_token: JedybHhcRHuLqscDENJxgttuyIfkqSnBTYTmtzqI
+
+musicbrainz:
+    auto: yes
+    user: pyromaniac
+    pass: 105022_Alpha
+ 
+acousticbrainz:
+     auto: yes
+     force: no
+     tags: all
+   
+embedart:
+    auto: yes
+    maxwidth: 500
+    ifempty: yes
+    remove_art_file: yes
+    ifempty: yes
+    compare_threshold: 0
+    
+fetchart:
+    auto: yes
+    minWidth: 500
+    maxWidth: 500
+    enforce_ratio: yes
+    sources:
+    - filesystem
+    - coverart
+    #- itunes
+    - amazon
+    - albumart
+    #- wikipedia
+    #- google
+    #- fanarttv
+    #google_key:
+    #cautious: noa
+    #fanarttv_key
+    #store_source
+    cover_names:
+    - cover
+    - front
+    - art
+    - album
+    - folder
+
+replaygain:
+    auto: yes
+    overwrite: no
+    backend: bs1770gain
+    targetlevel: 89
+    r128: Opus
+
+lastgenre:
+    auto: yes
+    source: album #album
+    force: no
+    count: 1
+    min_weight: 10
+    #whitelist: yes
+    #whitelist: /data/data/com.termux/files/home/.config/beets/genres.txt
+    separator: ', '
+    fallback: 'Unknown'
+    #canonical: no
+    
+lyrics:
+    auto: yes
+    fallback: None
+    sources: lyricwiki musixmatch genius
+    #google
+    #google_API_key:
+    #google_engine_ID:
+
+scrub:
+    auto: yes
+
+#pyrodroidMusic
+mbcollection: 
+    auto: yes
+    collection: 9a6a4d8d-19ad-4102-b19c-7a5b2d276562
+    remove: yes
+
+convert:
+    auto: yes
+    copy_album_art: no
+    embed: yes
+    max_bitrate: 320
+    format: mp3
+    formats:
+        mp3:
+            command: ffmpeg -i $source -ab 320k -map_metadata 0 -id3v2_version $dest
+            extension: mp3
+#        alac:
+#            command: ffmpeg -i $source -y -vn -acodec alac $dest
+#            extension: m4a
+#        aac:
+#            command: ffmpeg -i $source -y -vn -acodec libfaac -aq 100 $dest
+#            extension: m4a
+#        opus: ffmpeg -i $source -y -vn -acodec libopus -ab 96k $dest
+#        flac: ffmpeg -i $source -y -vn -acodec flac $dest
+#        ogg: ffmpeg -i $source -y -vn -acodec libvorbis -aq 2 $dest
+#        wma: ffmpeg -i $source -y -vn -acodec wmav2 -vn $dest
+#    dest:
+#    tmpdir:
+
+duplicates:
+    delete: no
+    count: yes
+    album: no
+    keys: [mb_trackid, mb_albumid]
+    merge: no
+    move: no
+    strict: no
+    full: no
+    
+
+#spotify:
+#    mode: list #open
+#    region_filter: US
+#    show_faiulres: on
+#    tiebreak: first
+
+#    regex: [
+#        {
+#            field: "albumartist", # Field in the item object to regex.
+#            search: "Something", # String to look for.
+#            replace: "Replaced" # Replacements value.
+#        },
+#        {
+#            field: "title",
+#            search: "Something Else",
+#            replace: "AlsoReplaced"
+#        }
+#    ]
+
+zero:
+    fields: comments
+    update_database: true
+
+scrub:
+    auto: yes
+#filefilter:
+#    path: .*\d\d[^/]+$ # will only import files which names start with two digits
+#    album_path: .*\d\d[^/]+$
+#    singleton_path: .*/(?!\d\d)[^/]+$
+
+#missing:
+#    format: $albumartist - $album - $title
+#    count: yes
+#    total: yes
+
+pluginpath: []
+
+

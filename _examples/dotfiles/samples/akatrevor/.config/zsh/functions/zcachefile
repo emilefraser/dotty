@@ -1,0 +1,7 @@
+#!/bin/zsh
+setopt LOCAL_OPTIONS ERR_RETURN PIPEFAIL  # VERBOSE XTRACE
+
+local name=${1:?}
+local root=${ZSH_CACHE_DIR:?}
+
+echo "$root/$name"

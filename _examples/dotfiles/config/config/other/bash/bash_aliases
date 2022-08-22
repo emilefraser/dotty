@@ -1,0 +1,65 @@
+# ~/.bash_aliases
+
+### DIRS ###
+alias d='cd ~/Downloads' 
+alias gh='cd ~/gh'
+alias sd='cd /sdcard'
+alias sdx='cd /storage/7645-4B1C'
+
+cls='clear'
+alias e='logout'
+alias gcl='git clone' 
+alias j='jobs'
+alias nano='nano -m'
+alias diff='diff --color=auto'
+alias p='pwd'
+alias q='exit'
+alias rf='rm -rf'
+alias ls='ls --color'
+alias la='ls -a --color'
+alias lla='ls -la --color'
+alias lsh='ls -lh --color'
+alias lsd='ls -d */'
+
+# PYTHON
+alias py2='python2'
+alias py='python3'
+alias py3='python3'
+alias pip='pip'
+alias pip2='pip2'
+alias pip3='pip'
+
+alias dmesg='dmesg --color=auto'
+
+alias c='cat'
+
+# GREP
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias ip='ip -c'
+# ps
+alias psg='ps -ef | g '
+
+# history
+alias hi='history'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..' 
+
+alias vdir='vdir --color=auto'
+alias watch='watch --color'
+alias cower='cower --color=auto'
+
+
+
+alias du='du -h'
+alias dus='du --summarize'
+alias duS='du -sk * | sort -n'
+alias watd='watch -d du --summarize'
+alias df='df -h'

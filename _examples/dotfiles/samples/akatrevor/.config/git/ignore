@@ -1,0 +1,41 @@
+# osx
+.DS_Store
+.AppleDouble
+.LSOverride
+.DS_*
+.zsh_local*
+
+# Icon must end with two \r
+Icon
+
+# A bit too generic imho
+## Thumbnails
+#._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+# python
+*.pyc
+__pycache__/
+
+# vim undo
+*.un~
+
+# per repo pre-commit config
+# god I hate pre-commit.
+/.pre-commit-config.yaml
+

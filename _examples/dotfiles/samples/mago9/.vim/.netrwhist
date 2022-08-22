@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/mattw/.zprezto/modules'
+let g:netrw_dirhist_2='/Users/mattw/.zprezto/modules/command-not-found'
+let g:netrw_dirhist_3='/Users/mattw/.zprezto/modules'
+let g:netrw_dirhist_4='/Users/mattw/.zprezto/modules/history-substring-search'
+let g:netrw_dirhist_5='/Users/mattw/.zprezto/modules/history-substring-search/external'
+let g:netrw_dirhist_6='/Users/mattw/.zprezto/modules/history-substring-search'
+let g:netrw_dirhist_7='/Users/mattw/.zsh'

@@ -1,0 +1,112 @@
+[github]
+  user = bjartek
+[core]
+  editor = vim
+  autocrlf = input
+  safecrlf = true
+  excludesfile = ~/.gitignore_global
+[alias]
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+  fix = !sh -c 'git commit -a --fixup HEAD && git push'
+  auto = rebase --interactive --autosquash  master
+  bd = branch -d
+  br = branch
+  bra = branch -a
+  ca = commit -a -m
+  cb = checkout -b
+  ct = checkout --track -b
+  ci = commit
+  co = checkout
+  cp = cherry-pick
+  gcap = !sh -c 'git commit -v -a && git push'
+  gpp = !sh -c 'git pull ; git push'
+  irb = rebase -i
+  last = log -1 HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)%an%Creset' --abbrev-commit --date=relative
+  l2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  me = merge
+  mes = merge --squash
+  mff = merge --no-ff
+  pa = add -p
+  rb = rebase
+  rh = reset --hard
+  st = status
+  unstage = reset HEAD --
+  v = !open -a GitX
+  visual = !open -a GitX
+[color]
+  ui = auto
+[remote "origin"]
+  push = HEAD
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[branch "master"]
+  rebase = true
+[branch]
+  autosetuprebase = always
+[pull]
+  rebase = true
+[mergetool "fugitive"]
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[diff]
+  renameLimit = 0
+  tool = meld
+[difftool]
+  prompt = false
+[merge]
+    tool = meld
+[mergetool]
+  prompt = false
+[push]
+  default = upstream
+  followTags = true
+[include]
+  path = ~/.gitconfig.local
+[gitflow "branch"]
+  master = master
+  develop = develop
+[gitflow "prefix"]
+  feature = feature/
+  release = release/
+  hotfix = hotfix/
+  support = support/
+  versiontag = v
+[url "https://git.aurora.skead.no/scm/"]
+  insteadOf = g:
+[url "https://github.com/skatteetaten/"]
+  insteadOf = ghs:
+[http]
+  followRedirects = 1
+[difftool "meld"]
+    cmd = meld $LOCAL $REMOTE
+[mergetool "meld"]
+    cmd = meld $LOCAL $MERGED $REMOTE --output $MERGED
+[user]
+	name = Bjarte Karlsen
+	email = bjarte.karlsen@skatteetaten.no
+[filesystem "AdoptOpenJDK|11.0.4|/dev/disk1s1"]
+	timestampResolution = 7000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[credential]
+	helper = cache --timeout=3600
+[filesystem "JetBrains s.r.o|11.0.4|/dev/nvme0n1p3"]
+	timestampResolution = 15000 nanoseconds
+	minRacyThreshold = 4058 microseconds
+[filesystem "Ubuntu|11.0.4|/dev/nvme0n1p3"]
+	timestampResolution = 12000 nanoseconds
+	minRacyThreshold = 7281 microseconds

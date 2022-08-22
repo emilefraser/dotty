@@ -1,0 +1,15 @@
+### SCRUB WF STEP ###
+   
+# Plugins --------------------------
+plugins: [
+    scrub,
+    zero
+]
+
+zero:
+    auto: yes
+    fields: comments original_day original_month original_year r128_album_gain r128_track_gain rg_album_gain rg_track_gain
+    update_database: true
+
+scrub:
+    auto: yes

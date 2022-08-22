@@ -1,0 +1,63 @@
+# [Created by task 2.5.0 1/31/2016 19:54:37]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+#server=localhost:53589
+
+# Files
+data.location=~/.task
+
+nag=You have more important tasks.
+#defaultwidth=0
+#defaultheight=0
+
+#verbose=on
+#verbose=blank,header,footnote,label,new-id,affected,edit,special,project,sync,filter,unwait
+
+# rm is the better option.
+alias.rm=delete
+worktag=osaro
+alias.work=+osaro
+
+# Annotate every stop/start
+journal.time=yes
+# Don't show this in info output
+journal.info=off
+
+default.due=today
+default.project=to-org
+
+default.command=+osaro list
+
+#urgency.blocked.coefficient=0.0
+#urgency.blocking.coefficient=0.0
+urgency.inherit=on
+
+# Color theme (uncomment one to use)
+# include ~/.task/themes/light-16.theme
+# include ~/.task/themes/light-256.theme
+# include ~/.task/themes/dark-16.theme
+# include ~/.task/themes/dark-256.theme
+# include ~/.task/themes/dark-red-256.theme
+# include ~/.task/themes/dark-green-256.theme
+# include ~/.task/themes/dark-blue-256.theme
+# include ~/.task/themes/dark-violets-256.theme
+include ~/.task/themes/dark-yellow-green.theme
+# include ~/.task/themes/dark-gray-256.theme
+# include ~/.task/themes/dark-gray-blue-256.theme
+# include ~/.task/themes/solarized-dark-256.theme
+# include ~/.task/themes/solarized-light-256.theme
+# include ~/.task/themes/no-color.theme
+
+include ~/.task/secrets.conf
+include ~/.task/bugwarriorudas.conf
+include ~/.task/intheamudas.conf
+include ~/.task/local.conf
+

@@ -1,0 +1,11 @@
+.ropeproject
+.DS_Store
+.*~
+*.old
+/disabled/
+/plugged
+_repos/
+/templates/
+/view/
+/session/
+

@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+"""
+_____________
+tabs-to-repos -- Quickly clone all of the github repos that you have open in firefox tabs.
+
+Pipe the output to your shell to actually clone them, otherwise it just prints the commands and some comments ;)
+
+@trevorj 12/2017
+https://gist.github.com/akatrevorjay/3fb5bc753edd42b2abd0accb4dde4cdc
+"""
+
+import glob
+import logging
+import os
+import re
+import sys
+
+# bug in firefox_tabs requires this, it only imports bare `lz4`
+import lz4.block  # noqa
+import firefox_tabs
+
+log = logging.getLogger(__name__)  # noqa
+
+FF_PROF_GLOB = '~/.mozilla/firefox*/*.*/'
+FF_PROF_SESS_REC_GLOB = '%s/sessionstore-backups/recovery.jsonlz4' % FF_PROF_GLOB
+
+RE_GITHUB_REPO = re.compile(
+    r'(?P<scheme>https?)://(www\.|)github.com/(?P<user>[-_0-9a-zA-Z]+)/(?P<repo>[-_0-9a-zA-Z]+)/?$',
+    re.IGNORECASE,
+)
+
+
+class AttrDict(dict):
+    """
+    >>> m = AttrDict(omg=True, whoa='yes')
+    """
+
+    def __init__(self, *args, **kwargs):
+        super(AttrDict, self).__init__(*args, **kwargs)
+        self.__dict__ = self
+
+
+def _glob_me_prof(pat=FF_PROF_GLOB, sort_by=lambda x: -os.stat(x).st_mtime):
+    pat = os.path.expanduser(pat)
+
+    paths = glob.glob(pat)
+    sorted_paths = sorted(paths, key=sort_by)
+
+    if not sorted_paths:
+        log.warn('Could not glob %r. What OS are you on?', glob)
+
+    for p in sorted_paths:
+        yield p
+
+
+def _load_firefox_data(path):
+    path = os.path.expanduser(path)
+    session_data = firefox_tabs.load_data(path)
+    return session_data
+
+
+def _iter_firefox_tabs(session_data, container_factory=AttrDict):
+    for window_idx, window in enumerate(session_data['windows']):
+        for tab in window['tabs']:
+            current_tab = tab['entries'][-1]
+
+            tab = container_factory(
+                url=current_tab['url'],
+                title=current_tab['title'],
+                window=window_idx,
+            )
+
+            yield tab
+
+
+def main(re_url=RE_GITHUB_REPO):
+    path = next(_glob_me_prof(FF_PROF_SESS_REC_GLOB))
+
+    log.info('Loading from firefox session store backup: %r', path)
+    session_data = _load_firefox_data(path)
+
+    tabs = list(_iter_firefox_tabs(session_data))
+    log.info('Loaded session data: num_tabs=%d', len(tabs))
+
+    for tab in tabs:
+        log.debug('Checking tab: url=%s', tab.url)
+
+        m = re_url.match(tab.url)
+        if not m:
+            continue
+
+        md = AttrDict(m.groupdict())
+
+        print('# %s' % tab.url)
+        print('git clone https://github.com/%s/%s.git' % (md.user, md.repo))
+
+    # avoids gc overhead at exit.
+    sys.exit(0)
+
+
+if __name__ == '__main__':
+    logging.basicConfig(
+        level=logging.DEBUG,
+        # Match squid log output
+        format='%(asctime)s| %(name)s/%(process)d: %(message)s '
+        '@%(funcName)s:%(lineno)d #%(levelname)s',
+        datefmt='%Y/%m/%d %H:%M:%S'
+    )
+
+    main()

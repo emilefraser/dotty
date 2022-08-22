@@ -1,0 +1,40 @@
+[include]
+	path = config.os
+
+	path = config.alias
+	path = config.diff-so-fancy
+	path = config.color
+
+	;path = config.unleakify
+	path = config.flow
+	path = config.reflow
+	path = config.whitespace
+	path = config.filters
+	path = config.misc
+
+	path = secrets
+	path = config.trevorj
+
+# vim: set ts=4 sw=4 tw=120 et ft=gitconfig :
+
+[http]
+	sslVerify = true
+[bulkworkspaces]
+	build = /home/trevorj/build
+	code = /home/trevorj/code
+	git = /home/trevorj/git
+	themes = /home/trevorj/build/_themes
+	pwd = .
+	antibody = /home/trevorj/.cache/antibody
+	vim-plug = /home/trevorj/.cache/vim/plugged
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[magithub]
+	online = false
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false

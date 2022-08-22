@@ -1,0 +1,532 @@
+aapt	aapt: fix compilation error after adding own zlib	10 days ago
+abduco	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+abook	abook: Update from 0.6.0pre2 to 0.6.1	11 days ago
+abuild	add zlib to dependencies where needed	10 days ago
+ack-grep	ack-grep: Update from 2.24 to 2.28	11 days ago
+alpine	Shell script compliance	2 months ago
+apache2	add zlib to dependencies where needed	10 days ago
+apk-tools	add zlib to dependencies where needed	10 days ago
+apksigner	Improve formatting of parantheses for functions	2 months ago
+apr-util	[incomplete] set licenses for packages	3 months ago
+apr	Improve formatting of parantheses for functions	2 months ago
+
+
+abook	add zlib to dependencies where needed	10 days ago
+argp	Shell script compliance	2 months ago
+aria2	add zlib to dependencies where needed	10 days ago
+asciinema	Improve formatting of parantheses for functions	2 months ago
+atomicparsley	add zlib to dependencies where needed	10 days ago
+attr	[incomplete] set licenses for packages	3 months ago
+autoconf	Improve formatting of parantheses for functions	2 months ago
+automake	[incomplete] set licenses for packages	3 months ago
+autossh	Improve formatting of parantheses for functions	2 months ago
+
+axel	Change permissions	2 months ago
+babl	babl: Depend on littlecms	3 months ago
+bash-completion	[incomplete] set licenses for packages	3 months ago
+bash	bash: Update from 5.0.3 to 5.0.7	a day ago
+bat	bat: fix build error where zlib.h was not found	9 days ago
+bc	bump revision of all packages dependent on readline	2 months ago
+binutils	add zlib to dependencies where needed	10 days ago
+bison	bison: Update from 3.3.1 to 3.3.2	3 months ago
+blogc	blogc: Update from 0.16.0 to 0.16.1	2 days ago
+bmon	[incomplete] set licenses for packages	3 months ago
+boost	add zlib to dependencies where needed	10 days ago
+brotli	[incomplete] set licenses for packages	3 months ago
+bs1770gain	bs1770gain: Update pkg checksum	3 months ago
+busybox	fix compilation errors for apt, busybox, imagemagick, libelf, tar	2 months ago
+bvi	[incomplete] set licenses for packages	3 months ago
+byobu	[incomplete] set licenses for packages	3 months ago
+c-ares	fix licenses where possible	3 months ago
+c-toxcore	[incomplete] set licenses for packages	3 months ago
+ca-certificates	ca-certificates: fix version typo	2 months ago
+caddy	Bump caddy&syncthing after DT_RUNPATH fix	a month ago
+calcurse	calcurse: Update from 4.3.0 to 4.4.0	2 months ago
+capstone	move some packages from termux/unstable-packages	a month ago
+cava	[incomplete] set licenses for packages	3 months ago
+cboard	Improve formatting of parantheses for functions	2 months ago
+ccache	add zlib to dependencies where needed	10 days ago
+ccrypt	[incomplete] set licenses for packages	3 months ago
+cgdb	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+cmake	cmake: Update from 3.13.4 to 3.14.2	6 days ago
+cmark	cmark: Update from 0.28.3.gfm.19 to 0.29.0.gfm.0	2 days ago
+cmatrix	cmatrix: Update from 1.2 to 2.0	11 days ago
+cmus	cmus: fix checksum	8 days ago
+colordiff	[incomplete] set licenses for packages	3 months ago
+command-not-found	update command-not-found suggestions	15 days ago
+coreutils	coreutils: fix hardcoded paths	2 months ago
+corkscrew	Improve formatting of parantheses for functions	2 months ago
+cowsay	Improve formatting of parantheses for functions	2 months ago
+cpio	Switch from ftp.gnu.org to mirrors.kernel.org	2 months ago
+cppi	[incomplete] set licenses for packages	3 months ago
+cscope	[incomplete] set licenses for packages	3 months ago
+ctags	ctags: Update from 0.0.20180830 to 0.0.20190412	11 days ago
+cvs	add zlib to dependencies where needed	10 days ago
+daemonize	[incomplete] set licenses for packages	3 months ago
+darkhttpd	darkhttpd: Fix DT_RUNPATH	a month ago
+dash	Improve formatting of parantheses for functions	2 months ago
+datamash	[incomplete] set licenses for packages	3 months ago
+dcraw	Spaces to tabs	2 months ago
+ddrescue	ddrescue: Update from 1.23 to 1.24	2 months ago
+debianutils	debianutils: bump to 4.8.6.1	2 months ago
+debootstrap	[incomplete] set licenses for packages	3 months ago
+dialog	dialog: update to 1.3-20190211 and fix download URL	2 months ago
+diffutils	[incomplete] set licenses for packages	3 months ago
+direvent	[incomplete] set licenses for packages	3 months ago
+dnsutils	add zlib to dependencies where needed	10 days ago
+dos2unix	dos2unix: Rebuild package (fixes #3577)	24 days ago
+doxygen	No backticks	2 months ago
+dpkg	add zlib to dependencies where needed	10 days ago
+dropbear	dropbear: Update from 2019.77 to 2019.78	25 days ago
+dtc	move some packages from termux/unstable-packages	a month ago
+dvtm	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+dx	Change permissions	2 months ago
+e2fsprogs	e2fsprogs: Update from 1.44.5 to 1.45.0	10 days ago
+ecj	No backticks	2 months ago
+ed	[incomplete] set licenses for packages	3 months ago
+elinks	add zlib to dependencies where needed	10 days ago
+emacs	emacs: Update from 26.1 to 26.2	10 days ago
+erlang	erlang: Update from 21.3.2 to 21.3.5	6 days ago
+espeak	[incomplete] set licenses for packages	3 months ago
+exa	exa: fix build error where zlib.h was not found	9 days ago
+expect	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+fakeroot	[incomplete] set licenses for packages	3 months ago
+fd	Fix DT_RUNPATH for rust-using packages	a month ago
+fdupes	fix licenses where possible	3 months ago
+ffmpeg	add zlib to dependencies where needed	10 days ago
+fftw	[incomplete] set licenses for packages	3 months ago
+figlet	Improve formatting of parantheses for functions	2 months ago
+file	add zlib to dependencies where needed	10 days ago
+finch	finch: remove broken symlink libymsg.so	15 days ago
+findutils	Revision-bump more packages	3 months ago
+fish	fish: Update from 3.0.1 to 3.0.2	2 months ago
+flex	fix licenses where possible	3 months ago
+fontconfig	add zlib to dependencies where needed	10 days ago
+fortune	fortune: Use LDFLAGS (see #3490)	2 months ago
+fossil	fossil: specify CPPFLAGS	10 days ago
+freetype	add zlib to dependencies where needed	10 days ago
+fribidi	add licenses for more packages	3 months ago
+frobtads	update license info & bump revisions for sl, unrar, frobtads	12 days ago
+fsmon	add licenses for more packages	3 months ago
+fwknop	add licenses for more packages	3 months ago
+fzf	fzf: do not override CGO_LDFLAGS	a month ago
+game-repo	game-repo: fix url	a month ago
+gawk	gawk: Update from 4.2.1 to 5.0.0	10 days ago
+gbt	gbt: bump revision after setting CGO_LDFLAGS	a month ago
+gcal	add licenses for more packages	3 months ago
+gdb	add zlib to dependencies where needed	10 days ago
+gdbm	add licenses for more packages	3 months ago
+gdk-pixbuf	Avoid meson stripping DT_RUNPATH	a month ago
+gegl	add zlib to dependencies where needed	10 days ago
+geoip2-database	geoip2-database: update to 20190320	a month ago
+getconf	add licenses for more packages	3 months ago
+getmail	getmail: Update from 5.11 to 5.13	2 months ago
+gettext	add zlib to dependencies where needed	10 days ago
+ghostscript	ghostscript: Update from 9.26 to 9.27	12 days ago
+giflib	giflib: Update from 5.1.4 to 5.1.9	25 days ago
+gifsicle	gifsicle: Update from 1.91 to 1.92	2 days ago
+git-crypt	Improve formatting of parantheses for functions	2 months ago
+git	add zlib to dependencies where needed	10 days ago
+glib	add zlib to dependencies where needed	10 days ago
+global	add licenses for more packages	3 months ago
+gmic	gmic: Update from 2.5.4 to 2.5.7	6 days ago
+gnuchess	bump C++ packages for NDK-19	2 months ago
+gnuit	add licenses for more packages	3 months ago
+gnupg	add zlib to dependencies where needed	10 days ago
+gnuplot	add zlib to dependencies where needed	10 days ago
+golang	golang: Update from 1.12.1 to 1.12.2	17 days ago
+googletest	bump C++ packages for NDK-19	2 months ago
+gperf	bump C++ packages for NDK-19	2 months ago
+gpgme	gpgme: Update from 1.12.0 to 1.13.0	25 days ago
+gpsbabel	Improve formatting of parantheses for functions	2 months ago
+graphicsmagick	add zlib to dependencies where needed	10 days ago
+graphviz	add zlib to dependencies where needed	10 days ago
+grep	Revision-bump more packages	3 months ago
+gsl	add licenses for more packages	3 months ago
+gst-plugins-bad	Bump packages after libx264 update	2 months ago
+gst-plugins-base	add zlib to dependencies where needed	10 days ago
+gst-plugins-good	add zlib to dependencies where needed	10 days ago
+gst-plugins-ugly	Bump packages after libx264 update	2 months ago
+gstreamer	gstreamer: do not use wrappers	2 months ago
+gtypist	add licenses for more packages	3 months ago
+gzip	gzip: fix path to /tmp	2 months ago
+harfbuzz	libicu: Update from 63.1 to 64.1	24 days ago
+hashdeep	remove TERMUX_PKG_API_LEVEL from packages	2 months ago
+hexcurse	add licenses for more packages	3 months ago
+hexedit	add licenses for more packages	3 months ago
+heyu	Improve formatting of parantheses for functions	2 months ago
+hfsutils	add licenses for more packages	3 months ago
+htop	Bump some nl_langinfo-using packages	3 months ago
+httping	add licenses for more packages	3 months ago
+hub	hub: Update from 2.11.1 to 2.11.2	10 days ago
+hugo	hugo: Update from 0.55.1 to 0.55.2	6 days ago
+hunspell-en-us	Improve formatting of parantheses for functions	2 months ago
+hunspell-ru	Shell script compliance	2 months ago
+hunspell	bump C++ packages for NDK-19	2 months ago
+hydra	hydra: Update from 8.8 to 8.9.1	2 months ago
+icecast	add licenses for more packages	3 months ago
+iconv	Shell script compliance	2 months ago
+imagemagick	imagemagick: Update from 7.0.8.34 to 7.0.8.40	10 days ago
+imgflo	add zlib to dependencies where needed	10 days ago
+indent	add licenses for more packages	3 months ago
+inetutils	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+inotify-tools	Improve formatting of parantheses for functions	2 months ago
+ipcalc	Improve formatting of parantheses for functions	2 months ago
+iperf3	add licenses for more packages	3 months ago
+ipfs	ipfs: Update from 0.4.19 to 0.4.20	6 days ago
+ired	ired: Make build respect LDFLAGS	a month ago
+irssi	irssi: fix hardcoded paths	2 months ago
+isync	add zlib to dependencies where needed	10 days ago
+jhead	Change permissions	2 months ago
+joe	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+jq	add licenses for more packages	3 months ago
+json-c	Improve formatting of parantheses for functions	2 months ago
+json-glib	json-glib: Bump revision after meson fix	a month ago
+jsoncpp	bump C++ packages for NDK-19	2 months ago
+jupp	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+kakoune	add licenses for more packages	3 months ago
+kbfs	kbfs: bump revision after setting CGO_LDFLAGS	a month ago
+keybase	keybase: Update from 2.13.1 to 3.2.2	7 days ago
+kona	add licenses for more packages	3 months ago
+krb5	krb5: Update from 1.16.2 to 1.16.3	10 days ago
+ldc	add zlib to dependencies where needed	10 days ago
+ldns	Change permissions	2 months ago
+ledger	ledger: Note that utf8cpp is build-time dependency	7 days ago
+leptonica	add zlib to dependencies where needed	10 days ago
+less	Change permissions	2 months ago
+leveldb	leveldb: Update from 1.20 to 1.21	24 days ago
+lftp	lftp: specify correct location for zlib	9 days ago
+libandroid-glob	Improve formatting of parantheses for functions	2 months ago
+libandroid-shmem	add licenses for more packages	3 months ago
+libandroid-support	Change permissions	2 months ago
+libarchive	add zlib to dependencies where needed	10 days ago
+libassuan	libassuan: Update from 2.5.2 to 2.5.3	2 months ago
+libbsd	not needed in android-7	a month ago
+libbz2	libbz2: fix hardcoded paths (/bin/rm /tmp)	2 months ago
+libc++	Simplify libc++ setup	a month ago
+libcaca	add zlib to dependencies where needed	10 days ago
+libcairo	add licenses for more packages	3 months ago
+libcap	libcap: force set DT_RUNPATH flags	a month ago
+libcln	bump C++ packages for NDK-19	2 months ago
+libcoap	libcoap: Update from 4.2.0-rc4 to 4.2.0	2 months ago
+libconfig	bump C++ packages for NDK-19	2 months ago
+libconfuse	add licenses for more packages	3 months ago
+libcroco	libcroco: Update from 0.6.12 to 0.6.13	17 days ago
+libcrypt	Improve formatting of parantheses for functions	2 months ago
+libcue	No backticks	2 months ago
+libcurl	add zlib to dependencies where needed	10 days ago
+libdb	libdb: Update from 6.2.32 to 18.1.32	10 days ago
+libedit	libedit: Update from 20181209 to 20190324	13 days ago
+libelf	add zlib to dependencies where needed	10 days ago
+libev	add licenses for more packages	3 months ago
+libevent	Change permissions	2 months ago
+libexif	add licenses for more packages	3 months ago
+libexpat	fix licenses where possible	3 months ago
+libffi	Change permissions	2 months ago
+libflac	bump C++ packages for NDK-19	2 months ago
+libgc	no longer needed for api above 21	a month ago
+libgcrypt	Change permissions	2 months ago
+libgd	add zlib to dependencies where needed	10 days ago
+libgit2	add zlib to dependencies where needed	10 days ago
+libgmime	add zlib to dependencies where needed	10 days ago
+libgmp	Change permissions	2 months ago
+libgnutls	libgnutls: Update from 3.6.6 to 3.6.7	25 days ago
+libgpg-error	libgpg-error: Update from 1.35 to 1.36	a month ago
+libgraphite	bump C++ packages for NDK-19	2 months ago
+libgrpc	add zlib to dependencies where needed	10 days ago
+libgsasl	Switch from ftp.gnu.org to mirrors.kernel.org	2 months ago
+libical	bump C++ packages for NDK-19	2 months ago
+libicu	libicu: Update from 63.1 to 64.1	24 days ago
+libid3tag	add zlib to dependencies where needed	10 days ago
+libidn	add licenses for more packages	3 months ago
+libidn2	Switch from ftp.gnu.org to mirrors.kernel.org	2 months ago
+libisl	libisl: Update from 0.20 to 0.21	25 days ago
+libjansson	Improve formatting of parantheses for functions	2 months ago
+libjasper	libjasper: Update from 2.0.14 to 2.0.16	a month ago
+libjpeg-turbo	libjpeg-turbo: Update from 2.0.1 to 2.0.2	2 months ago
+libksba	Change permissions	2 months ago
+libllvm	add zlib to dependencies where needed	10 days ago
+liblua	liblua: pass LDFLAGS to makefile so DT_RUNPATH will be set	a month ago
+liblua52	move some packages from termux/unstable-packages	a month ago
+liblz4	add licenses for more packages	3 months ago
+liblzma	add licenses for more packages	3 months ago
+liblzo	add licenses for more packages	3 months ago
+libmad	add licenses for more packages	3 months ago
+libmaxminddb	move some packages from termux/unstable-packages	a month ago
+libmesode	add licenses for more packages	3 months ago
+libmnl	add licenses for more packages	3 months ago
+libmosquitto	libmosquitto: Update from 1.5.7 to 1.5.8	2 months ago
+libmp3lame	add licenses for more packages	3 months ago
+libmp3splt	add licenses for more packages	3 months ago
+libmpc	Change permissions	2 months ago
+libmpdclient	libmpdclient: Bump after meson fix	a month ago
+libmpfr	libmpfr&unrar: Bump packages	a month ago
+libmsgpack	add licenses for more packages	3 months ago
+libnettle	add licenses for more packages	3 months ago
+libnfs	move some packages from termux/unstable-packages	a month ago
+libnghttp2	libnghttp2: Update from 1.37.0 to 1.38.0	2 days ago
+libnl	Improve formatting of parantheses for functions	2 months ago
+libnpth	add licenses for more packages	3 months ago
+libogg	add licenses for more packages	3 months ago
+liboggz	add licenses for more packages	3 months ago
+libopus	libopus: Update from 1.3 to 1.3.1	10 days ago
+libopusenc	add licenses for more packages	3 months ago
+libotr	add licenses for more packages	3 months ago
+libpcap	add licenses for more packages	3 months ago
+libpipeline	Change permissions	2 months ago
+libpixman	libpixman: Update from 0.38.0 to 0.38.4	13 days ago
+libpng	libpng: Update from 1.6.36 to 1.6.37	7 days ago
+libpopt	fix licenses where possible	3 months ago
+libprotobuf-c	libprotobuf-c: add missing dependency protobuf	12 days ago
+libprotobuf	add zlib to dependencies where needed	10 days ago
+libpulseaudio	libpulseaudio: bump revision	11 days ago
+libqrencode	add zlib to dependencies where needed	10 days ago
+librsvg	add zlib to dependencies where needed	10 days ago
+librsync	No backticks	2 months ago
+libsasl	Improve formatting of parantheses for functions	2 months ago
+libsndfile	Improve formatting of parantheses for functions	2 months ago
+libsodium	add licenses for more packages	3 months ago
+libsoup	add licenses for more packages	3 months ago
+libsoxr	add licenses for more packages	3 months ago
+libsqlite	add zlib to dependencies where needed	10 days ago
+libssh	add zlib to dependencies where needed	10 days ago
+libssh2	add zlib to dependencies where needed	10 days ago
+libtalloc	libtalloc: Prevent linking in libbsd needlessly	a month ago
+libtermkey	Spaces to tabs	2 months ago
+libtiff	add zlib to dependencies where needed	10 days ago
+libtool	Improve formatting of parantheses for functions	2 months ago
+libunibilium	Improve formatting of parantheses for functions	2 months ago
+libunistring	Revision-bump some packages	3 months ago
+libunwind	add licenses for more packages	3 months ago
+libuuid	add licenses for more packages	3 months ago
+libuv	libuv: Update from 1.27.0 to 1.28.0	6 days ago
+libvorbis	add licenses for more packages	3 months ago
+libvpx	bump C++ packages for NDK-19	2 months ago
+libvterm	Improve formatting of parantheses for functions	2 months ago
+libwebp	add licenses for more packages	3 months ago
+libwebsockets	rebuild ttyd and libwebsockets	2 days ago
+libx264	libx264: Update from 20180211 to 20190215	2 months ago
+libx265	bump C++ packages for NDK-19	2 months ago
+libxapian	add zlib to dependencies where needed	10 days ago
+libxml2	add zlib to dependencies where needed	10 days ago
+libxslt	add zlib to dependencies where needed	10 days ago
+libyaml	libyaml: Update from 0.2.1 to 0.2.2	a month ago
+libzmq	bump C++ packages for NDK-19	2 months ago
+libzopfli	zopfli: Respect LDFLAGS more	a month ago
+lighttpd	add zlib to dependencies where needed	10 days ago
+linux-man-pages	add licenses for more packages	3 months ago
+littlecms	add licenses for more packages	3 months ago
+lldb	lldb i686 fix	18 days ago
+ltrace	bump C++ packages for NDK-19	2 months ago
+luarocks	luarocks: fix host lua path	a month ago
+lynx	add zlib to dependencies where needed	10 days ago
+
+
+
+m4	m4: fix hardcoded paths	2 months ago
+
+
+
+mariadb	add zlib to dependencies where needed	10 days ago
+mathomatic	mathomatic: fix hardcoded paths	2 months ago
+mbedtls	mbedtls: Update from 2.16.0 to 2.17.0	25 days ago
+mc	add zlib to dependencies where needed	10 days ago
+mdp	add licenses for more packages	3 months ago
+megatools	add licenses for more packages	3 months ago
+memcached	memcached: Update from 1.5.12 to 1.5.13	2 days ago
+mg	fix licenses where possible	3 months ago
+mime-support	mime-support: fix license name	a month ago
+minicom	add licenses for more packages	3 months ago
+mlocate	Shell script compliance	2 months ago
+
+mp3splt	add licenses for more packages	3 months ago
+mpc	mpc: Bump after meson fix	a month ago
+mpd	add zlib to dependencies where needed	10 days ago
+mpv	mpv: enable lua support	a month ago
+msmtp	msmtp: Do not overwrite LDFLAGS	a month ago
+mtools	mtools: Bump revision for rebuild (fixes #3517)	a month ago
+multitail	Improve formatting of parantheses for functions	2 months ago
+mutt	add zlib to dependencies where needed	10 days ago
+nano	nano: Update from 4.0 to 4.1	7 days ago
+ncdc	add zlib to dependencies where needed	10 days ago
+ncdu	ncdu: Update from 1.13 to 1.14	2 months ago
+ncmpcpp	add zlib to dependencies where needed	10 days ago
+
+ndk-multilib	version names change	2 months ago
+ndk-sysroot	zlib-dev: breaks and replaces old ndk-sysroot	10 days ago
+neofetch	add licenses for more packages	3 months ago
+
+
+net-tools	net-tools: fix hardcoded paths	2 months ago
+netpbm	add zlib to dependencies where needed	10 days ago
+newsboat	newsboat: Update from 2.14.1 to 2.15	25 days ago
+nginx	nginx: Update from 1.5.11 to 1.5.12	7 days ago
+nim	nim: Update from 0.19.0 to 0.19.4	2 months ago
+ninja	Merge branch 'master' into readline	2 months ago
+nmap	add zlib to dependencies where needed	10 days ago
+nnn	nnn: Update from 2.3 to 2.4	a month ago
+nodejs-lts	nodejs-lts: link with shared zlib	9 days ago
+
+notmuch	add zlib to dependencies where needed	10 days ago
+nyancat	add licenses for more packages	3 months ago
+nzbget	add zlib to dependencies where needed	10 days ago
+oathtool	add zlib to dependencies where needed	10 days ago
+ocrad	add licenses for more packages	3 months ago
+openal-soft	openal-soft: fix path to /etc	2 months ago
+
+
+
+ossp-uuid	ossp-uuid: reformat build.sh	15 days ago
+
+pango	add licenses for more packages	3 months ago
+par2	add licenses for more packages	3 months ago
+parallel	add licenses for more packages	3 months ago
+parted	bump revision of all packages dependent on readline	2 months ago
+pass-otp	pass-otp: fix homepage url	2 months ago
+pass	pass: don't add newline to output. Fixes #3310	2 months ago
+pastebinit	Spaces to tabs	2 months ago
+patch	patch: don't link with libattr	22 days ago
+patchelf	patchelf: Update from git snapshot to 0.10	20 days ago
+pathpicker	Improve formatting of parantheses for functions	2 months ago
+pcre	pcre: Update from 8.42 to 8.43	2 months ago
+pcre2	pcre2: Update from 10.32 to 10.33	7 days ago
+perl	perl: Update from 5.28.1 to 5.28.2	2 days ago
+pforth	pforth: Respect LDFLAGS in build	a month ago
+php	add zlib to dependencies where needed	10 days ago
+pick	add licenses for more packages	3 months ago
+picolisp	Improve formatting of parantheses for functions	2 months ago
+pinentry	pinentry: fix path to /tmp	2 months ago
+pkg-config	Improve formatting of parantheses for functions	2 months ago
+play-audio	play-audio: do not use wrapper	2 months ago
+pngquant	add zlib to dependencies where needed	10 days ago
+poppler	poppler: glib-mkenums fix is no longer needed	15 days ago
+postgresql	add zlib to dependencies where needed	10 days ago
+potrace	add zlib to dependencies where needed	10 days ago
+privoxy	add zlib to dependencies where needed	10 days ago
+procps	add licenses for more packages	3 months ago
+profanity	add zlib to dependencies where needed	10 days ago
+
+proxychains-ng	proxychains-ng: remove 'core.c.patch'	a month ago
+psmisc	add licenses for more packages	3 months ago
+pure-ftpd	pure-ftpd: Update from 1.0.48 to 1.0.49	20 days ago
+pv	add licenses for more packages	3 months ago
+pwgen	Change permissions	2 months ago
+qalc	add zlib to dependencies where needed	10 days ago
+qpdf	add zlib to dependencies where needed	10 days ago
+ragel	add licenses for more packages	3 months ago
+rcs	add licenses for more packages	3 months ago
+
+redir	redir: Update from 3.2 to 3.3	a month ago
+redis	redis: Update from 5.0.3 to 5.0.4	a month ago
+remind	Improve formatting of parantheses for functions	2 months ago
+resolv-conf	specify CONFFILES for bash, nano, resolv-conf, tmux	2 months ago
+restic	new package: restic	2 months ago
+rgbds	add zlib to dependencies where needed	10 days ago
+rhash	rhash: fix path to /etc	2 months ago
+ripgrep	ripgrep: Update from 0.10.0 to 11.0.1	7 days ago
+rlwrap	bump revision of all packages dependent on readline	2 months ago
+root-repo	root-repo: fix url	a month ago
+rsync	add zlib to dependencies where needed	10 days ago
+rtmpdump	add zlib to dependencies where needed	10 days ago
+ruby	ruby: Update from 2.6.2 to 2.6.3	7 days ago
+rust	add zlib to dependencies where needed	10 days ago
+science-repo	science-repo: fix function formatting	a month ago
+screen	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+screenfetch	Improve formatting of parantheses for functions	2 months ago
+scrypt	scrypt: Add descriptive comment	3 months ago
+sed	Improve formatting of parantheses for functions	2 months ago
+sensible-utils	add licenses for more packages	3 months ago
+serf	add zlib to dependencies where needed	10 days ago
+sharutils	add licenses for more packages	3 months ago
+silversearcher-ag	add zlib to dependencies where needed	10 days ago
+sl	update license info & bump revisions for sl, unrar, frobtads	12 days ago
+socat	socat: Update from 1.7.3.2 to 1.7.3.3	12 days ago
+sox	add zlib to dependencies where needed	10 days ago
+speexdsp	speexdsp: specify license	2 months ago
+squid	squid: Update from 4.5 to 4.6	2 months ago
+sshpass	add licenses for more packages	3 months ago
+stag	fix licenses where possible	3 months ago
+stfl	stfl: fix compilation error	a month ago
+stow	add licenses for more packages	3 months ago
+strace	strace: Update from 4.26 to 5.0	20 days ago
+stunnel	stunnel: Update from 5.51 to 5.53	13 days ago
+subversion	add zlib to dependencies where needed	10 days ago
+swi-prolog	swi-prolog: trigger build	6 days ago
+syncthing	syncthing: Update from 1.1.0 to 1.1.1	20 days ago
+tar	fix compilation errors for apt, busybox, imagemagick, libelf, tar	2 months ago
+tasksh	bump C++ packages for NDK-19	2 months ago
+taskwarrior	bump C++ packages for NDK-19	2 months ago
+tcl	add zlib to dependencies where needed	10 days ago
+tcsh	add licenses for more packages	3 months ago
+teckit	add zlib to dependencies where needed	10 days ago
+termux-am	termux-am: Avoid the gradle daemon for real	2 days ago
+termux-api	termux-api: Update from 0.39 to 0.40	3 months ago
+termux-apt-repo	termux-apt-repo: Update from 0.3 to 0.4	3 months ago
+termux-auth	add licenses for more packages	3 months ago
+termux-create-package	Improve formatting of parantheses for functions	2 months ago
+termux-elf-cleaner	termux-elf-cleaner: update to v1.6	9 days ago
+termux-exec	termux-exec: Fix DT_RUNPATH	a month ago
+termux-keyring	termux-keyring: fornwall signed xeffyr.gpg	24 days ago
+termux-tools	termux-tools: bump revision	8 days ago
+teseq	add licenses for more packages	3 months ago
+tesseract	bump C++ packages for NDK-19	2 months ago
+texinfo	texinfo: Update from 6.5 to 6.6	2 months ago
+texlive-bin	texlive-bin: fix compilation errors	9 days ago
+texlive-tlmgr	Improve formatting of parantheses for functions	2 months ago
+texlive	Improve formatting of parantheses for functions	2 months ago
+tig	Spaces to tabs	2 months ago
+timewarrior	bump C++ packages for NDK-19	2 months ago
+tintin++	add zlib to dependencies where needed	10 days ago
+tinyproxy	add licenses for more packages	3 months ago
+tinyscheme	tinyscheme: Respect LDFLAGS	a month ago
+tmate	tmate: Bump to keep ahead of android-5 branch	a month ago
+tmux	libutil: remove package - replaced by libc from Android 7 or newer	2 months ago
+toilet	add licenses for more packages	3 months ago
+tor	add zlib to dependencies where needed	10 days ago
+torsocks	Improve formatting of parantheses for functions	2 months ago
+toxic	add zlib to dependencies where needed	10 days ago
+tracepath	Improve formatting of parantheses for functions	2 months ago
+transmission	Change permissions	2 months ago
+tree	Improve formatting of parantheses for functions	2 months ago
+tsocks	add licenses for more packages	3 months ago
+tsu	Update tsu to v2.1. Use git clone to checkout tags.	16 hours ago
+tty-clock	fix licenses where possible	3 months ago
+ttyd	rebuild ttyd and libwebsockets	2 days ago
+ttyrec	Make ttyrec respect LDFLAGS	a month ago
+units	bump revision of all packages dependent on readline	2 months ago
+
+
+
+utf8cpp	fix licenses where possible	3 months ago
+utf8proc	utf8proc: Update from 2.2.0 to 2.3.0	24 days ago
+utfdecode	bump C++ packages for NDK-19	2 months ago
+util-linux	add zlib to dependencies where needed	10 days ago
+valac	valac: Update from 0.40.8 to 0.44.3	6 days ago
+valgrind	valgrind: Update from 3.14.0 to 3.15.0	7 days ago
+vcsh	add licenses for more packages	3 months ago
+vifm	vifm: Bump on master to stay ahead of android-5	a month ago
+vim-python	Merge branch 'master' into update-vimrc	11 days ago
+vim	Merge branch 'master' into update-vimrc	11 days ago
+vorbis-tools	add licenses for more packages	3 months ago
+vttest	Change permissions	2 months ago
+vtutils	vtutils: Mark with Apache-2.0 license	3 months ago
+w3m	add zlib to dependencies where needed	10 days ago
+wcalc	bump revision of all packages dependent on readline	2 months ago
+weechat	add zlib to dependencies where needed	10 days ago
+wget	add zlib to dependencies where needed	10 days ago
+wireguard-tools	wireguard-tools: Update from 0.0.20190227 to 0.0.20190406	17 days ago
+wol	add licenses for more packages	3 months ago
+x11-repo	x11-repo: switch to API 24 URL	a month ago
+xmlsec	xmlsec: Update from 1.2.27 to 1.2.28	7 days ago
+xmlstarlet	Merge pull request #3249 from Grimler91/xmlstarlet	3 months ago
+xorriso	add zlib to dependencies where needed	10 days ago
+xvidcore	Improve formatting of parantheses for functions	2 months ago
+yajl	move some packages from termux/unstable-packages	a month ago
+yarn	yarn: Update from 1.14.0 to 1.15.2	20 days ago
+yasm	add licenses for more packages	3 months ago
+zbar	add zlib to dependencies where needed	10 days ago
+zile	Change permissions	2 months ago
+zip	Improve formatting of parantheses for functions	2 months ago
+zlib	Revert "zlib: devpackage cannot replace entire ndk-sysroot"	9 days ago
+zsh	Improve formatting of parantheses for functions	2 months ago
+zstd	zstd: Update from 1.3.8 to 1.4.0

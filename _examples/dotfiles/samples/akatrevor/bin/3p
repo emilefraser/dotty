@@ -1,0 +1,169 @@
+#!/usr/bin/env zsh
+# -*- coding: utf8 -*-
+set -eo pipefail
+
+autoload -Uz colors
+colors
+
+
+make() {
+	local try=(colormake make)
+	local opts=(-j $(nproc))
+
+	local c
+	for c in $try; do
+		(( ${+commands[$c]} )) || continue
+		command $c $opts "$@"
+		return $?
+	done
+
+	return 127
+}
+
+usage() {
+	echo "Usage:" >&2
+	echo "	$0		Compile (autotools/make/cmake)" >&2
+	echo "	$0 -i	Compile + dirtyinstall (the fourth prayer)" >&2
+}
+
+hipshit() {
+	local SYM=${SYM:-' '}
+	echo -ne " ${bold_color}${fg[white]}${SYM}${reset_color}" >&2
+	[[ $# -eq 0 ]] || echo " $@" >&2
+}
+
+verbose-call() {
+	local SYM=${SYM:-'$'}
+	hipshit "${bold_color}$*${reset_color}"
+	SYM=${SEP:-'---'} hipshit ""
+	echo -e " ${SEP}"
+
+	"$@"
+	echo
+}
+
+function max() {
+	local sorted=(${(n)argv})
+	[[ $#sorted -eq 0 ]] \
+		|| echo ${sorted[-1]}
+}
+
+function min() {
+	local sorted=(${(n)argv})
+	[[ $#sorted -eq 0 ]] \
+		|| echo ${sorted[1]}
+}
+
+zmodload -F zsh/stat b:zstat
+
+function is-newer-than() {
+	local left=() right=()
+
+	local arg sidx=0
+	for arg in $argv; do
+		case $sidx in
+			0)
+				if [[ $arg == '--' ]]; then
+					sidx+=1
+					continue
+				fi
+
+				left+=($arg) ;;
+			1)
+				right+=($arg) ;;
+		esac
+	done
+
+	left=(${^left}(-.N))
+	right=(${^right}(-.N))
+
+	if [[ ${#left} -eq 0 ]] || [[ ${#right} -eq 0 ]]; then
+		return 1
+	fi
+
+	local left_mtime=$(max $(zstat -N +mtime $left))
+	local right_mtime=$(max $(zstat -N +mtime $right))
+	if [[ $left_mtime -gt $right_mtime ]]; then
+		return 100
+	fi
+}
+
+compile() {
+	if [[ -f autogen.sh ]]; then
+		if ! is-newer-than configure -- autogen.sh; then
+			verbose-call ./autogen.sh
+		fi
+
+		#if [[ -f configure ]]; then
+		#    verbose-call autoreconf -i
+		#else
+		#    verbose-call ./autogen.sh
+		#fi
+	fi
+
+	if [[ -f configure ]]; then
+		if ! is-newer-than Makefile -- configure autogen.sh; then
+			verbose-call ./configure
+		fi
+	fi
+
+	if [[ -f CMakeLists.txt ]]; then
+		#if ! is-newer-than build/Makefile build/CMakeCache.txt -- CMakeLists.txt; then
+		if ! is-newer-than build/Makefile build/CMakeCache.txt -- **/CMakeLists.txt; then
+			verbose-call mkdir -pv build
+			verbose-call cd build
+			verbose-call cmake ..
+		fi
+	fi
+
+	if [[ -f meson.build ]]; then
+		if ! is-newer-than build/build.ninja -- meson.build; then
+			verbose-call meson build
+		fi
+	fi
+
+	if [[ -f Cargo.toml ]]; then
+		verbose-call cargo install
+		verbose-call cargo build --release -vv
+	fi
+
+	if [[ -f Makefile ]]; then
+		verbose-call make
+	elif [[ -f makefile ]]; then
+		verbose-call make -f makefile
+	fi
+
+	if [[ -f build.ninja ]]; then
+		verbose-call ninja
+	fi
+}
+
+main() {
+	zparseopts -D -- h=o_help -help=o_help i=o_install
+
+	if [ -n "$o_help" ]; then
+		usage
+		return
+	fi
+
+	hipshit "${bold_color}${fg[blue]}Performing ritual of the three prayers${reset_color}"
+	echo
+
+	compile
+
+	if [ $o_install -eq 0 ]; then
+		msg=("${reset_color}Fuck it, ${bold_color}dirtyinstall${reset_color} >& ${bold_color}${fg[red]}/dev/hell${reset_color}")
+	else
+		msg=("${reset_color}Don't worry brother, already ${bold_color}dirtyinstall${reset_color}'d for you.${reset_color}")
+
+		verbose-call dirtyinstall
+	fi
+
+	echo
+	SYM=' ' hipshit "${fg[blue]}You dirty hacker." \
+		"${fg[green]}Look at this mess." \
+		"$msg"
+}
+
+main "$@"
+

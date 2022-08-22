@@ -1,0 +1,20 @@
+#!/bin/bash
+
+MAIN_BRANCH=${1:-master}
+INITIAL_BRANCH=$(git symbolic-ref --short HEAD)
+
+if [[ "$INITIAL_BRANCH" != "$MAIN_BRANCH" ]]; then
+  git checkout ${MAIN_BRANCH}
+else
+  echo "Already on ${MAIN_BRANCH}!"
+fi
+
+set -x
+git pull upstream ${MAIN_BRANCH}
+git push --no-verify
+set +x
+
+if [[ "$INITIAL_BRANCH" != "$MAIN_BRANCH" ]]; then
+  git checkout ${MAIN_BRANCH}
+fi
+

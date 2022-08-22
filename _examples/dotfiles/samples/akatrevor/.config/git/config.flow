@@ -1,0 +1,11 @@
+# Git flow (avh) magic default messages and hooks.
+[gitflow "hotfix.finish"]
+	message = Hotfix %tag%
+
+[gitflow "release.finish"]
+	message = Release %tag%
+
+[gitflow "path"]
+	hooks = hooks
+
+# vim: set ts=4 sw=4 tw=120 et ft=gitconfig :

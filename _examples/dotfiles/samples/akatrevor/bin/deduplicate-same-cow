@@ -1,0 +1,29 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+set -xv
+
+hashfile=$HOME/.local/share/duperemove.hashes
+# bs=128k
+bs=8k
+
+on-exit() {
+	sudo chown $USER:$USER $hashfile
+}
+trap on-exit EXIT
+
+cmd=(
+	duperemove
+	--hashfile=$hashfile
+	-A  # open +r not +rx (def for root)
+	-x  # do not cross fs boundaries (def)
+	-r  # recurse
+	-d  # dedupe same blocks in fs: only works on btrfs and xfs
+	# -b $bs  # blocksize
+	# dedupe in same file
+	--dedupe-options=same
+	-h  # human readable
+	"$@"
+)
+
+sudo $cmd
+

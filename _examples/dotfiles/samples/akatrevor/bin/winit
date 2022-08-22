@@ -1,0 +1,76 @@
+#!/usr/bin/env zsh
+
+case "${1:-$DE}" in
+	i3*|sway*)
+		# autorandr -c || :
+
+		[[ ! -e ~/.fehbg ]] || source ~/.fehbg || :
+
+		## xsettings and related
+		# xsettingsd &
+		xfsettingsd &
+		# gsd-launch &
+		#kdeinit5 &
+
+		# because gkd is not started with all components as you'd expect...
+		gnome-keyring-daemon -r --components=pkcs11,secrets &
+
+		/usr/lib/gcr/gcr-prompter &
+		/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+		#/usr/lib/x86_64-linux-gnu/libexec/kdeconnectd &
+		/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd &
+
+		## input
+		#wm &
+		inputplug -d -0 -c $HOME/.config/inputplug/hook &
+		#imwheel -b '4 5 6 7' -k -p -r -d &
+		tkbd &
+
+		## weee
+		__GL_YIELD=NOTHING compton &
+		# __GL_YIELD=USLEEP compton &
+
+		# HOST should always be short already, but I've seen misconfigurations where it is not.
+		# (sometimes someone does not understand how /etc/hostname works}
+		# have no fear though, systemd has since bastardized all of this anyway! for reasons
+		case ${${HOST%%.*}:l} in
+			fatbookho*|beastlyfingers*|nsfbh*)
+				usbguard-applet-qt &
+				nm-applet &
+				ckb-next --background &
+				solaar &
+				pasystray &
+
+				parcellite &
+				# indicator-kdeconnect &
+				# kdeconnect-indicator &
+				#notify-proxy &
+				# variety &
+
+				# yubioath gui -t &
+				# easystroke &
+				#kupfer &
+
+				#(( ! ${+commands[wal]} )) \
+				#  || wal -i $(< $HOME/.cache/wal/wal)
+
+				xdg-autostart &
+
+				xautolock -time 30 -locker $HOME/bin/lock -detectsleep &
+				;;
+
+			notsofatbookho*)
+				gpomme &
+				;;
+		esac
+
+		polybars &
+
+		(( ! ${+commands[winit-local]} )) || winit-local "$@"
+
+		;;
+esac
+
+## weee
+wait
+

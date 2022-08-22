@@ -1,0 +1,133 @@
+config:
+  backup: false
+  create: true
+  dotpath: dotfiles
+dotfiles:
+  f_bash_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+    link: link
+  f_zsh_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+    link: link
+  f_zsh_zshenv:
+    src: zshenv
+    dst: ~/.zshenv
+    link: link
+  f_zsh_zprofile:
+    src: zprofile
+    dst: ~/.zprofile
+    link: link
+  f_ssh_config:
+    src: ssh/config
+    dst: ~/.ssh/config
+    link: link
+  f_git_config:
+    src: config/git/config
+    dst: ~/.config/git/config
+    link: link
+  f_nvim_init.vim:
+    src: config/nvim/init.vim
+    dst: ~/.config/nvim/init.vim
+    link: link
+  d_emacs:
+    src: config/emacs
+    dst: ~/.config/emacs
+    link: link
+  f_ranger_rc.conf:
+    src: config/ranger/rc.conf
+    dst: ~/.config/ranger/rc.conf
+    link: link
+  f_ranger_scope.sh:
+    src: config/ranger/scope.sh
+    dst: ~/.config/ranger/scope.sh
+    link: link
+  f_systemd_ssh-agent.service:
+    src: config/systemd/user/ssh-agent.service
+    dst: ~/.config/systemd/user/ssh-agent.service
+    link: link
+  f_systemd_picom.service:
+    src: config/systemd/user/picom.service
+    dst: ~/.config/systemd/user/picom.service
+    link: link
+  f_bspwm_bspwmrc:
+    src: config/bspwm/bspwmrc
+    dst: ~/.config/bspwm/bspwmrc
+    link: link
+  f_systemd_sxhkd.service:
+    src: config/systemd/user/sxhkd.service
+    dst: ~/.config/systemd/user/sxhkd.service
+    link: link
+  f_systemd_polybar.service:
+    src: config/systemd/user/polybar.service
+    dst: ~/.config/systemd/user/polybar.service
+    link: link
+  f_systemd_xbanish.service:
+    src: config/systemd/user/xbanish.service
+    dst: ~/.config/systemd/user/xbanish.service
+    link: link
+  f_fontconfig_01-overrides.conf:
+    src: config/fontconfig/conf.d/01-overrides.conf
+    dst: ~/.config/fontconfig/conf.d/01-overrides.conf
+    link: link
+  f_pulseaudio_client.conf:
+    src: config/pulse/client.conf
+    dst: ~/.config/pulse/client.conf
+    link: link
+  f_rofi_config:
+    src: config/rofi/config
+    dst: ~/.config/rofi/config
+    link: link
+  f_kitty_kitty.conf:
+    src: config/kitty/kitty.conf
+    dst: ~/.config/kitty/kitty.conf
+    link: link
+  f_mpd_mpd.conf:
+    src: config/mpd/mpd.conf
+    dst: ~/.config/mpd/mpd.conf
+    link: link
+  f_ncmpcpp_config:
+    src: config/ncmpcpp/config
+    dst: ~/.config/ncmpcpp/config
+    link: link
+  f_mpv_mpv.conf:
+    src: config/mpv/mpv.conf
+    dst: ~/.config/mpv/mpv.conf
+    link: link
+  f_mpv_input.conf:
+    src: config/mpv/input.conf
+    dst: ~/.config/mpv/input.conf
+    link: link
+  f_zathura_zathurarc:
+    src: config/zathura/zathurarc
+    dst: ~/.config/zathura/zathurarc
+    link: link
+profiles:
+  phoebus:
+    dotfiles:
+    - f_bash_bashrc
+    - f_zsh_zshrc
+    - f_zsh_zprofile
+    - f_zsh_zshenv
+    - f_ssh_config
+    - f_git_config
+    - f_nvim_init.vim
+    - d_emacs
+    - f_ranger_rc.conf
+    - f_ranger_scope.sh
+    - f_systemd_ssh-agent.service
+    - f_systemd_picom.service
+    - f_bspwm_bspwmrc
+    - f_systemd_sxhkd.service
+    - f_systemd_polybar.service
+    - f_systemd_xbanish.service
+    - f_fontconfig_01-overrides.conf
+    - f_pulseaudio_client.conf
+    - f_rofi_config
+    - f_kitty_kitty.conf
+    - f_mpd_mpd.conf
+    - f_ncmpcpp_config
+    - f_mpv_mpv.conf
+    - f_mpv_input.conf
+    - f_zathura_zathurarc

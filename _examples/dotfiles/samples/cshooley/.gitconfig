@@ -1,0 +1,7 @@
+[user]
+	name = Chris Schooley
+	email = chris@schooley.name
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff3

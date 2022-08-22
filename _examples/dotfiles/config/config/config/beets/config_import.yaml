@@ -1,0 +1,39 @@
+### IMPORT WF STEP ###
+
+#IMPORT
+import: 
+    # tagging
+    write: no
+    resume: yes #no or ask
+    incremental: no
+    incremental_skip_later: no #skip dird
+    from_scratch: no #existing meta?
+    quiet_fallback: skip #asis
+    none_rec_action: ask #asis, skip
+    timid: no
+    default_action: apply # skip, asis, none
+    group_albums: yes
+    autotag: no
+    duplicate_action: skip # keep, merge, remove, ask
+    
+    # files
+    move: no
+    copy: no
+    delete: no
+    link: no
+    hardlink: no
+
+    # general
+    languages: ['en']
+    detail: yes # shows match detail
+    set_fields:
+        #genre: 'xxx'
+        comments: ''
+    
+    # feedback
+    log: beets.log # where log kept
+    bell: yes
+
+# Plugins --------------------------
+plugins: []
+

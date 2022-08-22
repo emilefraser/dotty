@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+set -xv
+
+#: ${dockerPrune:=no}
+: ${excludeImages:=$HOME/.config/docker-gc.exclude}
+: ${maxSecondsOld:=86400}
+: ${networkPrune:=yes}
+: ${pullExcluded:=yes}
+
+cmd=(
+   docker run -it --rm
+   --read-only --tmpfs /tmp:rw,nosuid,nodev
+   -v /var/run/docker.sock:/var/run/docker.sock
+   --userns host
+)
+
+if [[ -e $excludeImages ]]; then
+   dst="/exclude"
+   cmd+=(
+      -e excludeImages=$dst
+      -v $excludeImages:$dst:ro
+      )
+fi
+
+vars=(
+   dockerPrune
+   maxSecondsOld
+   networkPrune
+   pullExcluded
+)
+
+for k in $vars; do
+   v=${(P)k}
+   [[ -n $v ]] || continue
+   cmd+=(-e "$k=$v")
+done
+
+cmd+=(konstruktoid/docker-garby)
+
+"${cmd[@]}" "$@"

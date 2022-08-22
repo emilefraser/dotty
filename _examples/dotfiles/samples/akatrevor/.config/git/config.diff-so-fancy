@@ -1,0 +1,16 @@
+# diff-so-fancy
+[color "diff-highlight"]
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+	oldNormal = red bold
+
+[pager]
+	; pager = diff-so-fancy | less --tabs=4 -RFX
+	; pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+	; show = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+	diff = maybe-diff-so-fancy | less --tabs=4 -RFX
+	; --pattern '^(Date|added|deleted|modified): '
+	; log = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+
+# vim: set ts=4 sw=4 tw=120 et ft=gitconfig :

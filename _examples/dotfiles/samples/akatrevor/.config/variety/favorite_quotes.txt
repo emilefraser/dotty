@@ -1,0 +1,597 @@
+“Hearing nuns' confessions is like being stoned to death with popcorn.”
+-- Fulton Sheen.
+%
+“640K ought to be enough for anybody.”
+-- Bill Gates (1955-), in 1981
+%
+“I think there is a world market for maybe five computers.”
+-- Thomas Watson (1874-1956), Chairman of IBM, 1943
+%
+“People who say you're just as old as you feel are all wrong, fortunately.”
+-- Russell Baker
+%
+“I would have made a good pope.”
+-- Richard Nixon
+%
+“Good programmers use their brains, but good guidelines save us having to think out every case.”
+-- Francis Glassborow
+%
+“Experience is what you get when you were expecting something else.”
+%
+“Abnormal is so common, it's practically normal.”
+-- Cory Doctorow
+%
+“It is practically imposible to teach good programming to students that have had a prior exposure to BASIC: as potential programmers they are mentally mutilated beyond hope of regeneration.”
+-- Edsger Dijkstra
+%
+“An intelligence test sometimes shows a man how smart he would have been not to have taken it.”
+-- Laurence J. Peter
+%
+“In every man there are two minds that work side by side, the one checking the other; thus emotion stands against reason, intellect corrects passion and first impressions act a little, but very little, before quick reflection.”
+-- Ford Madox Ford
+%
+“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”
+-- Albert Einstein
+%
+“Nobody speaks the truth when there's something they must have.”
+-- Elizabeth Bowen
+%
+Franklin's Rule: Blessed is the end user who expects nothing, for he/she will not be disappointed.
+%
+“Life is like butter - when things cool down it can be reshaped”
+-- Alan Sheinwald
+%
+“Save a little money each month and at the end of the year you'll be surprised at how little you have.”
+-- Ernest Haskins
+%
+“The nice thing about egotists is that they don't talk about other people.”
+-- Lucille S. Harper
+%
+“She shook her head, her smile fading a little. “I forget you’re a rock star now. To me, you’re just Logan.”
+I took her hand. “That’s all I want to be.”
+-- Lisa Kessler
+%
+“A pint of sweat, saves a gallon of blood.”
+-- General George S. Patton (1885-1945)
+%
+“If pigs could vote, the man with the slop bucket would be elected swineherd every time, no matter how much slaughtering he did on the side.”
+-- Orson Scott Card
+%
+On the value of binary; the Bible says: "But let your communication be Yea, yea; nay, nay: for whatsoever is more than these cometh of evil."
+-- (Matthew 5:37)
+%
+“God, please save me from your followers!”
+-- Bumper Sticker
+%
+“We play the hands of cards life gives us. And the worst hands can make us the best players.”
+-- Doc Searls
+%
+“When you've seen one non-sequitur, the price of tea in China.”
+%
+“If you kill one person you are a murderer. If you kill ten people you are a monster. If you kill ten thousand you are a national hero.”
+-- Vassilis Epaminondou
+%
+“The best performance improvement is the transition from the nonworking state to the working state”
+-- John Ousterhout
+%
+“When the president does it that means it is not illegal.”
+-- Richard Nixon
+%
+“If they give you ruled paper, write the other way.”
+-- Juan Ramon Jiminez
+%
+“Be entirely tolerant or not at all; follow the good path or the evil one. To stand at the crossroads requires more strength than you possess.”
+-- Heinrich Heine
+%
+“To know how to choose a path with heart is to learn how to follow
+intuitive feeling. Logic can tell you superficially where a path might
+lead to, but it cannot judge whether your heart will be in it.”
+-- Jean Shinoda Bolen
+%
+“C++: an octopus made by nailing extra legs onto a dog”
+-- unknown
+%
+“Religion is not merely the opium of the masses; it's the cyanide.”
+-- Tom Robbins
+%
+“A genius is simply one who has taken full possession of his own mind and directed it toward objectives of his own choosing, without permitting outside influences to discourage or mislead him.”
+-- Napoleon Hill
+%
+“The purpose of software engineering is to control complexity, not to create it.”
+-- Dr. Pamela Zave
+%
+“Come on then, I will swear to study so
+To know the thing I am forbid to know
+- Berowne”
+-- William Shakespeare
+%
+“Compassion is the chief law of human existence.”
+-- Fyodor Dostoyevsky
+%
+“When I am dead, I hope it may be said: 'His sins were scarlet but his books were read.”
+-- Hillaire Belloc.
+%
+“The way to find what the mainstream will do tomorrow is to associate with the lunatic fringe today.”
+-- Jean-Louis Gassee
+%
+“Bachelor's degrees make pretty good placemats if you get 'em laminated.”
+-- Jeph Jacques
+%
+“There is no end to the adventures that we can have if only we seek them with our eyes open.”
+-- Jawaharlal Nehru
+%
+“...as hollow as the o in god...”
+-- Marilyn Manson
+%
+“Do not fear death so much, but rather the inadequate life.”
+-- Bertolt Brecht
+%
+“We had gay burglars the other night. They broke in and rearranged the furniture.”
+-- Robin Williams.
+%
+“We've got to escape from narrowness. We're a movement, not a conspiracy. We've got to radiate contacts, and have as many people aware of us as possible. That's living, modern common sense.”
+-- H.G. Wells
+%
+“Look into my eyes and deny me.”
+-- Poppet
+%
+“The only one listening to both sides of an argument is the neighbor in the next apartment”
+-- unknown
+%
+“Without Christ a people may always have the freedom to do, but never the power to complete.”
+-- Criss Jami
+%
+“So I was getting into my car, and this bloke says to me "Can you give me a lift?" I said "Sure, you look great, the world's your oyster, go for it.'”
+-- Tommy Cooper
+%
+“What sane person could live in this world and not be crazy?”
+-- Ursula K. LeGuin
+%
+“Denial ain't just a river in Egypt.”
+-- Mark Twain (1835-1910)
+%
+“Friends are honest with each other. Even if the truth hurts.
+-Maggie”
+-- Sarah Dessen
+%
+“Living is change; Growth is optional.”
+-- Juan Wa Chang
+%
+“It is a miracle that curiosity survives formal education.”
+-- Albert Einstein
+%
+“Telling the truth is less demanding than telling a lie.”
+-- Eraldo Banovac
+%
+“Did you ever walk in a room and forget why you walked in? I think that's how dogs spend their lives.”
+-- Sue Murphy.
+%
+“Never tell a child that something it’s too hard”
+-- Mitch Albom
+%
+“Read. Read until your eyes are sore. Then read some more.”
+-- Lisa Bloom
+%
+“Life begins at 40 - but so do fallen arches, rheumatism, faulty eyesight, and the tendency to tell a story to the same person, three or four times.”
+-- Helen Rowland
+%
+“I am a fool with a heart but no brains, and you are a fool with brains but no heart; and we’re both unhappy, and we both suffer.”
+-- Fyodor Dostoyevsky
+%
+“There are worse things than looking stupid. Sleeping through life is one of them.”
+-- Laura Preble
+%
+“Object-oriented programming is an exceptionally bad idea which could only have originated in California.”
+-- Edsger Dijkstra
+%
+“The old believe everything; the middle aged suspect everything: the young know everything.”
+-- Oscar Wilde
+%
+“We can aspire to anything, but we don't get it just 'cause we want it. I would rather spend my life close to the birds than waste it wishing I had wings.”
+-- Eli Attie
+%
+“This isn't right, this isn't even wrong.”
+-- Wolfgang Pauli (1900-1958), upon reading a young physicist's 
+    paper
+%
+“Millions of deaths would not have happened if it weren’t for the consumption of alcohol. The same can be said about millions of births.”
+-- Mokokoma Mokhonoana
+%
+“Discovery consists of seeing what everybody has seen and thinking what nobody has thought.”
+-- Albert Szent-Gyorgyi
+%
+“Politeness, n. The most acceptable hypocrisy.”
+-- Ambrose Bierce
+%
+“And I hope she does not live in a dark world. Because even the most terrible loss doesn't have to make you darker; it can make you deeper.”
+-- Augusten Burroughs
+%
+“I invented the term Object-Oriented, and I can tell you I did not have C++ in mind.”
+-- Alan Kay
+%
+“Copy from one, it's plagiarism; copy from two, it's research.”
+-- Wilson Mizner (1876-1933)
+%
+“We are condemned to kill time: thus we die bit by bit.”
+-- Octavio Paz
+%
+“Consult your friend on all things, especially on those which respect yourself. His counsel may then be useful where your own self-love might impair your judgment.”
+-- Seneca
+%
+“To date, despite the efforts of millions of true believers to support this myth, there is no more evidence for the Judeo-Christian god than any of the gods on Mount Olympus.”
+-- Joseph Daleiden
+%
+“A magician pulls rabbits out of hats. An experimental psychologist pulls habits out of rats.”
+-- Anonymous
+%
+“Purpose is the most important thing worth living for”
+-- Sunday Adelaja
+%
+“A good marriage would be between a blind wife and a deaf husband.”
+-- Honore de Balzac
+%
+“It is not about proving anything to the world. 
+It is all about proving your capabilities to yourself and stretching your own boundaries.”
+-- Manoj Arora
+%
+“The more passions and desires one has, the more ways one has of being happy.”
+-- Charlotte-Catherine
+%
+“I am a NEW YORKER which means i work full time and live my life part time”
+-- Kenneth waters Jr
+%
+“To laugh often and much; to win the respect of intelligent people and the affection of children...to leave the world a better place...to know even one life has breathed easier because you have lived. This is to have succeeded.”
+-- Ralph Waldo Emerson
+%
+“There is still no cure for the common birthday.”
+-- John Glenn
+%
+“Learning is what most adults will do for a living in the 21st century.”
+-- Perelman
+%
+“If you really want to remove a cloud from your life, you do not make a big production of it, you just relax and remove it from your thinking. That's all there is to it.”
+-- Richard Bach
+%
+“To be alone is to be different, to be different is to be alone.”
+-- Suzanne Gordon
+%
+“We are not victims by nature...we are programmed to be victims...for good reason...if we truly embraced our power, we would never be controlled. Live WISE~”
+-- Gail Marie MacLean
+%
+“A successful marriage is an edifice that must be rebuilt every day.”
+-- Andre Maurois
+%
+“It takes a long time to grow young.”
+-- Pablo Picasso
+%
+“A computer once beat me at chess, but it was no match for me at kick boxing.”
+-- Emo Philips
+%
+“Esmeralda?” Scarlett turned to the witch next. “Don’t you want to do magic, again?” 
+
+“Of course I do! It’s the only thing I dream of. Casting spells… Turning people into frogs… Genetically engineering my gingerbread army…”
+-- Cassandra Gannon
+%
+“The best way to convince a fool that he is wrong is to let him have his own way.”
+-- Josh Billings
+%
+“I hope life isn't a big joke ... because I don't get it.”
+-- Unknown
+%
+“To his credit, he's the first statewide official to say the pay raise was passed in an unconstitutional way.”
+-- Gene Stilp
+%
+“Good horror offers a sense of an upended, lawless world and that’s appealing to anyone who grew up feeling like an outsider.”
+-- Christopher  Rice
+%
+“A non-virtual function says, you have to do this and you must do it this way. A virtual function says you have to do this, but you don't have to do it this way. That's their fundamental difference.”
+-- Scott Meyers
+%
+“Worrying helps you some—it seems as if you were doing something when you're worrying.”
+-- L. M. Montgomery
+%
+“Radioactive cats have 18 half-lives.”
+%
+“His book is much harder to read than it must have been to write.”
+-- Christopher Hitchens about Bob Woodwars's new 
+            book, 'State of Denial'
+%
+“A neurosis is a secret that you don't know you are keeping.”
+-- Kenneth Tynan
+%
+Lieberman's Law: Everybody lies; but it doesn't matter, since nobody listens.
+%
+“Two men were examining the output of the new computer in their department. After an hour or so of analyzing the data, one of them remarked: 'Do you realize it would take 400 men at least 250 years to make a mistake this big ?'”
+%
+“The Revolution will be complete when the language is perfect.”
+-- George Orwell
+%
+“What makes something special is not just what you have to gain, but what you feel there is to lose.”
+-- Andre Agassi
+%
+“It's strange, isn't it. You stand in the middle of a library and go 'aaaaagghhhh' and everyone just stares at you. But you do the same thing on an aeroplane, and everyone joins in.”
+-- Tommy Cooper
+%
+“I bought a cactus. A week later it died. And I got depressed, because I thought, Damn. I am less nurturing than a desert.”
+-- Demetri Martin
+%
+“I'm too shy to express my sexual needs except over the phone to people I don't know.”
+-- Garry Shandling
+%
+“When we are unhurried and wise, we perceive that only great and worthy things have any permanent and absolute existence, that petty fears and petty pleasures are but the shadow of the reality.”
+-- Henry David Thoreau
+%
+“Conflicts are expensive.”
+-- Rajen Jani
+%
+“I never thought my life would end like this. Being hunted by mythological creatures in my pajamas. Honestly, it never entered my mind.”
+-- Amanda  Carlson
+%
+“Don't live the same day over and over again and call that a life. Life is about evolving mentally, spiritually, and emotionally.”
+-- Germany Kent
+%
+“I didn’t love you to seek revenge.
+I didn’t love you out of loneliness or unhappiness.
+I didn’t love you for any of the misguided reasons that time might convince you I did.
+I just loved you because you’re you.”
+-- Ranata Suzuki
+%
+“A multithreaded file system is only a performance hack.”
+-- Prof. Andrew S. Tanenbaum
+%
+“The release of atomic energy has not created a new problem. It has merely made more urgent the necessity of solving an existing one.”
+-- Albert Einstein
+%
+“To cheapen the lives of any group of men, cheapens the lives of all men, even our own. This is a law of human psychology, or human nature. And it will not be repealed by our wishes, nor will it be merciful to our blindness.”
+-- William Pickens
+%
+“You ought to pause and enjoy the peace in the moment.”
+-- Lailah Gifty Akita
+%
+“If you lie to the compiler, it will get its revenge.”
+-- Henry Spencer
+%
+“The defense policy of the United States is based on a simple premise: The United States does not start fights. We will never be an aggressor.”
+-- Ronald Reagan
+%
+“Real Programmers never work from 9 to 5. If any real programmer is around at 9 a.m., it's because they were up all night.”
+-- Some Computer Geek
+%
+“What's the point of havin' a rapier wit if I can't use it to stab people?”
+-- Jeph Jacques
+%
+“Why is this thus? What is the reason for this thusness?”
+-- Artemus Ward
+%
+Lady Astor: "Mr. Churchill, you're drunk!" Winston Churchill: "Yes, and you, Madam, are ugly. But tomorrow, I shall be sober."
+%
+“To iterate is human, to recurse divine.”
+-- L. Peter Deutsch
+%
+“You have to track every single thing you eat if you want to keep posting big numbers on the scale each week.”
+-- Ali Vincent
+%
+“A recent survey or North American males found 42% were overweight, 34% were critically obese and 8% ate the survey.”
+-- Banksy
+%
+“A true man never frets about his place in the world, but just slides into it by the gravitation of his nature, and swings there as easily as a star.”
+-- Edward Chapin
+%
+“A stupid friend can hurt you more than a smart enemy.”
+-- Erol Ozan
+%
+“And even a liar can be scared into telling the truth, same as honest man can be tortured into telling a lie.”
+-- William Faulkner
+%
+“When we are angry or depressed in our creativity, we have misplaced our power. We have allowed someone else to determine our worth, and then we are angry at being undervalued.”
+-- Julia Cameron
+%
+“Grief is Newark. It's there. Can't avoid it. The idea is to hold your nose, hope the traffic's not too bad and get on to Manhattan as quickly as possible.”
+-- Eli Attie
+%
+“The majority of people on earth are ignorant of what their time should be used for.”
+-- Sunday Adelaja
+%
+“With age come the inner, the higher life. Who would be forever young, to dwell always in externals?”
+-- Elizabeth Cady Stanton
+%
+“...You can't unlearn something, even if you want to. You know what you know.”
+-- Sarah Dessen
+%
+“Feelings are really your GPS system for life. When your supposed to do something, or not supposed to do something, your emotional guidance system lets you know.”
+-- Oprah Winfrey
+%
+“Your true power is not in your difference, but in your consistency of being different. The world will always adjust to consistency, yet struggle with change.”
+-- Shannon L. Alder
+%
+“The best way to make children good is to make them happy.”
+-- Oscar Wilde
+%
+“I wanted change and excitement and to shoot off in all directions myself, like the colored arrows from a Fourth of July rocket.”
+-- Sylvia Plath
+%
+“The power of patriarchy has been to make maleness feared and to make men feel that it is better to be feared that to be loved. Whether they can confess this or not, men know that just is not true.”
+-- bell hooks
+%
+"I suppose that it takes a $1000/hour lawyer to write contracts that a $250/hour lawyer cannot find holes in.
+-- John Herbster in b.p.d.non-technical
+%
+“His blue eyes slice through me and make me wish I hadn't come.”
+-- Kathey Gray
+%
+“What are heavy? sea-sand and sorrow.
+What are brief? today and tomorrow.
+What are frail? spring blossoms and youth.
+What are deep? the ocean and truth.”
+-- Christina Rossetti
+%
+“If the difficult tasks are completed first, then the remaining tasks seem easy.”
+-- Rajen Jani
+%
+“We don't make mistakes, we just have happy little accidents.”
+-- Bob Ross, "The Joy of Painting"
+%
+“Why don't they make the whole plane out of that black box stuff.”
+-- Steven Wright.
+%
+“Unformed people delight in the gaudy and in novelty. Cooked people delight in the ordinary.”
+-- Erik Naggum
+%
+“Lohr's Law: The future is merely the past with a twist - and better tools.”
+-- Steve Lohr
+%
+"For every programmer that decreases the average entropy of code on github there is a programmer with an equal but opposite effect"
+-- Eddie Groshev
+%
+"Courage: Two cannibals having oral sex."
+-- Unknown
+%
+“I care not whether a man is Good or Evil; all that I care is whether he is a Wise man or a Fool. Go! put off Holiness, 
+and put on Intellect; or my thund’rous hammer shall drive thee To wrath, which thou condemnest, till thou obey my voice.”
+-- William Blake
+%
+"Programming today is a race between software engineers striving to build bigger and better idiot-proof programs,
+and the universe trying to produce bigger and better idiots. So far, the universe is winning."
+-- Rich Cook
+%
+Conway's Law: In any organization there will always be one person who knows what is going on.
+This person must be fired.
+%
+
+“If women didn't exist, all the money in the world would have no meaning.”
+-- Aristotle Onassis (1906-1975)
+%
+"Why yes
+-- a bulletproof vest."
+%
+“A lifetime is more than sufficiently long for people to get what there is of it wrong.”
+-- Piet Hein
+%
+“You probably wouldn't worry about what people think of you if you could know how seldom they do.”
+-- Olin Miller
+%
+“I have never made but one prayer to God, a very short one: 'O Lord, make my enemies ridiculous.' And God granted it.”
+-- Voltaire
+%
+“Beware when the great God lets loose a thinker on this planet.”
+-- Ralph Waldo Emerson
+%
+“Any sufficiently advanced technology is indistinguishable from magic.”
+-- Arthur C. Clarke
+%
+“Mistakes, obviously, show us what needs improving. Without mistakes, how would we know what we had to work on?”
+-- Peter McWilliams
+%
+“Shit, you shoot me in a dream, you better wake up and apologize.”
+-- Quentin Tarantino
+%
+“A short while ago I foolishly thought I could learn everything - all the knowledge in the world. Now I hope only to be able to know of its existence, and to understand one grain of it.”
+-- Daniel Keyes
+%
+“When you're dealing with frauds and liars, listen more to what they don't say than what they do.”
+-- DaShanne Stokes
+%
+“If you talk to God, you are praying. If God talks to you, you have schizophrenia.”
+-- Thomas Szasz
+%
+“Humanity has advanced, when it has advanced, not because it has been sober, responsible, and cautious, but because it has been playful, rebellious, and immature.”
+-- Tom Robbins
+%
+“The competent programmer is fully aware of the strictly limited size of his own skull; therefore he approaches the programming task in full humility, and among other things he avoids clever tricks like the plague.”
+-- Edsger Dijkstra
+%
+“I do not regret one professional enemy I have made. Any actor who doesn't dare to make an enemy should get out of the business.”
+-- Bette Davis
+%
+“Except as its clown and jester, society does not encourage individuality, and the State abhors it.”
+-- Bernard Berenson
+%
+“Wisdom comes from experience. Experience is often a result of lack of wisdom.”
+-- Terry Pratchett
+%
+“Progress isn't made by early risers. It's made by lazy men trying to find easier ways to do something.”
+-- Robert Heinlein
+%
+“Far better it is for you to say: "I am a sinner," than to say: "I have no need of religion." The empty can be filled, but the self-intoxicated have no room for God.”
+-- Fulton J. Sheen
+%
+“Any inaccuracies in this index may be explained by the fact that it has been sorted with the help of a computer.”
+-- Donald Knuth Sorting and Searching
+%
+“In the end, everything is a gag.”
+-- Charlie Chaplin (1889-1977)
+%
+“I did not know how to say goodbye. It was harder still, when I refused to say it.”
+-- Native American saying
+%
+Jenkinson's Law: It won't work.
+%
+“I have woken up inside one of my own memories. I am really here, yet I know I am not.”
+-- Emily Barr
+%
+“Be happy without picking flaws.”
+-- Victor Hugo
+%
+“Inanimate objects can be classified scientifically into three major categories; those that don't work, those that break down and those that get lost.”
+-- Russell Baker.
+%
+“The difference between pornography and erotica is lighting.”
+-- Gloria Leonard
+%
+“I'm choosing happiness over suffering, I know I am. I'm making space for the unknown future to fill up my life with yet-to-come surprises.”
+-- Elizabeth Gilbert
+%
+“The only way to last a really long time is to build something useful enough that people will want to keep it going after you die, and to cultivate a sense of ownership in other people. In short: make good shit and give it away as fast as you can.”
+-- Lisa Williams
+%
+“Early to rise, Early to bed, Makes a man healthy but socially dead.”
+-- The Warner Brothers (Animaniacs)
+%
+“Part of the inhumanity of the computer is that, once it is competently programmed and working smoothly, it is completely honest.”
+-- Isaac Asimov
+%
+“It seems to me that people have vast potential. Most people can do extraordinary things if they have the confidence or take the risks. Yet most people don't. They sit in front of the telly and treat life as if it goes on forever.”
+-- Philip Adams
+%
+“Anything too stupid to be said is sung.”
+-- Voltaire
+%
+“Make yourself necessary to somebody. Do not make life hard to any.”
+-- Ralph Waldo Emerson
+%
+"Trying to outsmart a compiler defeats much of the purpose of using one."
+-- Kernighan and Plauger, The Elements of Programming Style
+%
+"Happiness is an imaginary condition, formerly attributed by the living to the dead, now usually attributed by adults to children, and by children to adults."
+-- Thomas Szasz
+%
+“You are moving in the opposite direction when your life is about survival only”
+-- Sunday Adelaja
+%
+“If Stupidity got us into this mess, then why can't it get us out?”
+-- Will Rogers (1879-1935)
+%
+“The trouble with the Internet is that it's replacing masturbation as a leisure activity.”
+-- Patrick Murray.
+%
+"Peter's Principle: In every hierarchy, each employee tends to rise to the level of his incompetence."
+%
+
+"Finagle's Law of Dynamic Negatives: Anything that can go wrong, will
+-- at the worst possible moment."
+%
+“If you ever drop your keys into a river of molten lava, let 'em go, because, man, they're gone.”
+-- Jack Handey
+%
+"Men are like steel. When they lose their temper, they lose their worth."
+-- Chuck Norris
+%
+“Tell the innocent visitor from another world that two people were killed at Sarajevo, and that the best that Europe could do about it was to kill eleven million more.”
+-- A.A. Milne
+%
+“It's my experience that people are a lot more sympathetic if they can see you hurting, and for the millionth time in my life I wish for measles or smallpox or some other easily understood disease just to make it easier on me and also on them.”
+-- Jennifer Niven
+%
+“Debugging a Direct3D application can be challenging.”
+-- Microsoft's Direct3D Immediate Mode overview.
+%

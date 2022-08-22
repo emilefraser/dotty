@@ -1,0 +1,60 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+
+gitcfg() {
+	git config --global --includes "$@"
+}
+
+name=$PWD:t
+
+case $name in
+	build)
+		name=${PWD:h:t}
+		;;
+esac
+
+maint=$(
+	printf '%s <%s>' \
+	$(gitcfg --get user.name) \
+	$(gitcfg --get user.email)
+)
+
+cmd=(
+	sudo checkinstall
+	# --type=debian
+	--fstrans
+	# --install=no
+	--gzman=yes
+	--exclude=/home
+	# --backup=no
+	--bk
+	--showinstall
+	--inspect
+	--review-control
+	--reset-uids
+	--addso
+	--strip
+	--stripso
+
+	--maintainer="$(gitcfg user.name) <$(gitcfg user.email)>"
+
+	# --requires=blah,blah2
+	# --provides=blah,blah2
+
+	-y
+
+	--pkgname=$name
+)
+
+
+if [[ $# -eq 0 ]]; then
+	inst_cmd=()
+
+	if test -e build.ninja; then
+		inst_cmd=(ninja install)
+	fi
+
+	set -- "${inst_cmd[@]}"
+fi
+
+exec $cmd "$@"

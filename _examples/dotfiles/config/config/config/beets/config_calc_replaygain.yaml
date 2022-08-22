@@ -1,0 +1,14 @@
+### REPLAYGAIN STEP ###
+
+# Plugins --------------------------
+plugins: [
+    replaygain
+]
+
+replaygain:
+    auto: yes
+    backend: bs1770gain
+    overwrite: no
+    targetlevel: 89
+    method: replaygain #ebu, atsc
+    #chunk_at: 5000

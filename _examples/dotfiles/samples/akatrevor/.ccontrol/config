@@ -1,0 +1,60 @@
+[*]
+    #cc = /usr/bin/gcc-6
+    #c++ = /usr/bin/g++-6
+	#no-parallel = *
+	cc = /usr/bin
+	c++ = /usr/bin
+    
+	ld = /usr/bin
+	make = /usr/bin
+    
+	cpus = 8
+    
+	# make check should not generally be run in parallel
+	no-parallel = check docs doc tests test
+    
+	ccache = /usr/bin
+
+# Comment this back in for debugging
+#       verbose
+
+# distcc
+#	distcc = /usr/bin/distcc
+#
+#	 distcc-hosts = +zeroconf
+#	 distc++-hosts = +zeroconf
+#
+#	 distcc-hosts = snab swarm1 swarm3 swarm4 swarm5 fandango2 mingo
+#	 distc++-hosts = snab mingo
+
+# Wesnoth doesn't compile with g++ 4.0
+#[*wesnoth*]
+#	   c++ = /usr/bin/g++-3.4
+
+# Stupid third-party modules don't build in parallel.
+#[/usr/src/modules/*]
+#	   no-parallel = *
+
+# Using distcc when testing module-init-tools causes strange effects.
+[*module-init-tools*/tests/*]
+	   distcc disable
+
+[*themes*]
+	no-parallel = *
+
+# [*bazel*]
+#     cc = /usr/bin/gcc-6
+#     c++ = /usr/bin/g++-6
+# 	no-parallel = *
+#
+# [*tensorflow*]
+#     cc = /usr/bin/gcc-6
+#     c++ = /usr/bin/g++-6
+# 	no-parallel = *
+
+#[*openwrt*]
+#    cc = /usr/bin/gcc-5
+#    c++ = /usr/bin/g++-5
+#    no-parallel = *
+
+# vim: set ts=4 sw=4 tw=120 et ft=dosini :

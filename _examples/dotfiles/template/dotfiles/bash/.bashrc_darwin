@@ -1,0 +1,23 @@
+# Versions
+alias ruby=/usr/local/bin/ruby
+alias gem=/usr/local/bin/gem
+
+# Installed applications
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias diffmerge="/Applications/DiffMerge.app/Contents/MacOS/DiffMerge"
+alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Atom"
+
+# Remove bouncing
+defaults write com.apple.dock no-bouncing -bool TRUE
+defaults write com.apple.dock expose-animation-duration -float 0.25
+defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES
+
+# TODO(schoon) - Automate setting the following values:
+# - In ~/Library/Preferences/com.apple.symbolichotkeys.plist:
+#   - 34, 35, 37, 63, 76 - "enabled" -> "NO"
+
+npm set prefix ~/.npm
+export PATH=$PATH:~/.npm/bin

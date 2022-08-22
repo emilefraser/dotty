@@ -1,0 +1,5 @@
+{
+        "default": "$HOME",
+        ".bashrc": "$HOME",
+        ".vimrc":"$HOME/.vim"
+}

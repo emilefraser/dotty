@@ -1,0 +1,61 @@
+#!/usr/bin/env zsh
+set -exv
+
+yadm pull || :
+
+(( ! ${+commands[antibody]} ]] )) || \
+	command antibody update &
+
+(( ! ${+commands[rustup]} ]] )) || \
+	rustup update &
+
+path+=($HOME/.nix-profile/bin)
+(( ! ${+commands[nix-channel]} ]] )) || \
+	nix-channel --update && nix-env -u &
+
+#(( ! ${+commands[flatpak]} )) || \
+#    flatpak update &
+
+vim=${commands[nvim]-${commands[vim]}}
+if [[ -n $vim ]]; then
+	update-neovim-venv &
+fi
+
+case $OSTYPE:l in
+	linux*)
+		sudo apt update -qq &
+		;;
+
+	darwin*)
+		brew update >/dev/null &
+		;;
+esac
+
+wait
+
+case $OSTYPE:l in
+	linux*)
+		sudo apt upgrade -y
+		;;
+
+	darwin*)
+		brew upgrade --fetch-HEAD || :
+		;;
+esac
+
+if [[ -n $vim ]]; then
+	$vim -c 'PlugUpdate'
+fi
+
+if (( ${+commands[gcloud]} )); then
+	gcloud components update || :  # This can fail if it's apt installed
+fi
+
+#if [[ ${+commands[tmux]} ]]; then
+#	 :
+#fi
+
+if (( ${+commands[go]} )) && [[ -n "$GOPATH" ]]; then
+	 go get -u -v junegunn/fzf alecthomas/chroma masterminds/glide || :
+fi
+

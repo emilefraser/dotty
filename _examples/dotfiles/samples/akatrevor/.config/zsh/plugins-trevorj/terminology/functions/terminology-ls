@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+# Do a normal cat if we aren't interactive or are say, piping.
+# I can't think of a reason why stdin would be a gotcha off the top of my head,
+# but I'm playing it safe here.
+if tty -s && test -t 0 \
+&& test -t 1 \
+&& [[ -n $TERMINOLOGY && -n $DISPLAY && -z "$TMUX$SCREEN$PYMUX" ]]
+then
+    tyls "$@"
+else
+    #local orig=$TERMINOLOGY_LS_ORIG
+    #[[ -n "$orig" ]] || echo "Missing terminology-ls-orig aliases" >&2
+    ${=TERMINOLOGY_LS_ORIG:-'command ls'} "$@"
+fi

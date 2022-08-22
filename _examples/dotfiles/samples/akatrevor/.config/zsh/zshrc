@@ -1,0 +1,258 @@
+#!/bin/zsh
+
+umask 022
+
+# if it's a dumb terminal, return.
+if [[ ${TERM} == 'dumb' ]]; then
+	return
+fi
+
+if [[ -n ${modules[zsh/regex]} ]] || zmodload zsh/regex; then
+	[[ $- =~ i ]] || return
+fi
+
+if [[ -z $ZSH_CACHE_DIR ]]; then
+	echo "- ZSH_CACHE_DIR is not set?" >&2
+	return 1
+elif [[ ! -e $ZSH_CACHE_DIR ]]; then
+	echo "- Creating ZSH_CACHE_DIR=\"$ZSH_CACHE_DIR\"" >&2
+	mkdir -pv $ZSH_CACHE_DIR
+fi
+
+
+autoload -Uz debug e warn error death
+
+# aliases are used to defer calls to compinit, complete, compdef.
+# technically it's the default anyway, but this is justin case
+# funcar
+setopt aliases
+setopt functionargzero
+
+
+##
+## Vars
+##
+
+# enable all of the highlighters
+typeset -Ua ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+
+
+##
+## Zplugins API
+##
+
+# list and queue
+typeset -a ZPLUGINS=()
+typeset -a ZPLUGINS_Q=()
+
+function zplugins.init {
+	if ! (( ${+commands[antibody]} )) && (( ${+commands[go]} )); then
+		echo "- Antibody not found in path. Attempting install.." >&2
+		go get -u -v github.com/akatrevorjay/antibody/cmd/antibody
+		hash -r
+	fi
+
+	if ! (( ${+commands[antibody]} )); then
+		echo "- Could not find/install antibody. Cannot/will not continue. Deal with it." >&2
+		return 1
+	fi
+
+	source <(command antibody init)
+}
+
+function zplugins.is-initialized {
+	[[ -z $ZPLUGINS_IS_APPLYING ]] && (( ${+functions[antibody]} ))
+}
+
+# Queue loads until they are applied.
+# We'll run them once we have the full list if necessary.
+# Avoids races and dependency woes since now we can order accordingly.
+
+function zplugins.q.add {
+	ZPLUGINS_Q+=(${(q)argv}$'\0')
+}
+
+function zplugins.q.dry-run {
+	command antibody bundle "${(0)ZPLUGINS_Q}"
+}
+
+function zplugins.q.apply {
+	zplugins.is-initialized || zplugins.init
+
+	local ZPLUGINS_IS_APPLYING=1
+	antibody bundle "${(0)ZPLUGINS_Q}"
+
+	ZPLUGINS+=("${(@)ZPLUGINS_Q}")
+	ZPLUGINS_Q=()
+}
+
+function zplugins.q.show {
+	command antibody bundle "${(0)ZPLUGINS}"
+}
+
+function zplugins.load {
+	local p="$1"
+
+	local defer=${${${p:t}%%[^0-9]*}:-0}
+
+	# I have not patched antibody to support these as of yet.
+	#zplugins.q.add $p --from local --defer $defer
+	zplugins.q.add "$p"
+
+	! zplugins.is-initialized || zplugins.q.apply
+}
+
+function zplugins.load-all-in {
+	local p
+
+	local plugins=()
+	for p in "$@"; do
+		if [[ ${p:0:1} == / ]]; then
+			plugins+=($p(-/N))
+		else
+			plugins+=(${^ZDOTDIRS}/$p(-/N))
+		fi
+	done
+
+	plugins+=(${^plugins}/*(-/N))
+
+	#plugins=(${^plugins}/*.plugin.zsh(NY1))
+	#plugins=(${plugins%/*.plugin.zsh})
+
+	for p in "${plugins[@]}"; do
+		zplugins.load "$p"
+	done
+}
+
+
+#
+# defer -- protection against things like the google cloud sdk that
+#          continue to /execute/ compinit in their completion setup.
+#
+# Pretty simple, it just defers commands until later,
+# ~ that is, except for compinit calls, which are left to die.
+#
+
+typeset -a ZPLUGINS_DEFER_Q=()
+
+function zplugins.defer.exec {
+	: ${1:?}
+
+	# allow for flags like `compinit:ignore`
+	local bin=${1%%:*}
+	local raw_flags="" f
+	[[ $1 != *:* ]] || raw_flags=${1#*:}
+	local -A flags=(); for f in ${(s:,:)raw_flags}; flags+=($f 1)
+
+	local action="   Deferring"
+	local ignore=""
+	if (( ${+flags[ignore]} )); then
+		# ignore these attempts to slow our roll.
+		action='   Ignoring'
+		ignore=true
+	fi
+
+	# e '%s: %s' $action "${(qqq)argv}"
+
+	[[ -z $ignore ]] || return 0
+
+	ZPLUGINS_DEFER_Q+=(
+		"${(j: :)${(q@)argv}}"
+	)
+}
+
+function zplugins.defer.apply {
+	local a
+
+	for a in $ZPLUGINS_DEFER_Q; do
+		local cmd=("${(Q@)${(z@)a}}")
+		# e 'executing defered: %s' "$cmd"
+		$cmd
+	done
+
+	# ZPLUGINS_DEFER_Q=()
+}
+
+function zplugins.defer.add {
+	local bin=${1%%:*}
+	aliases[$bin]="${(q)0/add/exec} ${(q)1}"
+}
+
+function zplugins.defer.rm {
+	local bin=${1%%:*}
+	unset "aliases[$bin]"
+}
+
+
+typeset -a zplugins_compinit_funcs=(compdef complete compinit:ignore compaudit:ignore compdump:ignore)
+
+# Insert aliases
+function zplugins.compinit.defer() {
+	local meth
+	for meth in $zplugins_compinit_funcs
+		zplugins.defer.add $meth
+}
+
+function zplugins.compinit.undefer() {
+	local meth
+	for meth in $zplugins_compinit_funcs
+		zplugins.defer.rm $meth
+}
+
+
+zplugins_compinit_done=''
+
+function zplugins.compinit {
+	[[ -z $zplugins_compinit_done ]] || return 0
+
+	zplugins.compinit.undefer
+
+	autoload -Uz compinit
+	compinit -d ${ZSH_CACHE_DIR:?}/compinit
+
+	zplugins.defer.apply
+
+	zplugins_compinit_done=true
+}
+
+
+##
+## Meat
+##
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+zplugins.compinit.defer
+
+# Secrets
+source-with-force ${^ZDOTDIRS}/secrets(-.N)
+
+# Collect plugin list
+() {
+	local fns=(zshplugins)
+	[[ $# -eq 0 ]] \
+	  || fns+=(zshplugins-${^argv})
+	fns=(${^ZDOTDIRS}/${^fns}(-.N))
+
+	source-with-force $fns
+} $OSTYPE $USER
+
+# Local
+source-with-force $LOCAL_ZDOTDIR/zshrc
+
+# Now we can apply them as necessary upon first call transparently.
+# Avoids races and dependency woes since now we can order accordingly.
+zplugins.q.apply
+zplugins.compinit
+
+autoload -Uz fix-{f,}path-order
+fix-path-order
+fix-fpath-order
+
+# Set up the prompt
+autoload -Uz ztheme; ztheme
+
+# This is annoying to have earlier.
+#setopt warncreateglobal
+

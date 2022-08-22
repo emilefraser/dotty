@@ -1,0 +1,22 @@
+{
+  "segments": [
+    "newline",
+    "ssh",
+    "cwd",
+    "git",
+    "git_stash",
+    "ssh",
+    "newline",
+    "root",
+    "exit_code"
+  ],
+  "mode": "patched",
+  "cwd": {
+    "mode": "plain",
+    "max_depth": 4
+  },
+  "vcs": {
+    "show_symbol": "true"
+  },
+  "theme": "solarized_light"
+}

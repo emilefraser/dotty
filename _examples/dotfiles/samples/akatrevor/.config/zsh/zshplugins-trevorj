@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+zplugins.load 'willghatch/zsh-hooks'
+zplugins.load 'mafredri/zsh-async'
+# zplugins.load 'zdharma/zui'
+
+# zplugins.load 'zdharma/zredis'  # actually gdbm + redis now, module == zdharma/db
+
+zplugins.load 'akatrevorjay/zsh-histdb'
+zplugins.load 'akatrevorjay/fasd'
+# zplugins.load 'psprint/zsnapshot'
+
+# zplugins.load 'zdharma/zbrowse'
+# zplugins.load 'zdharma/git-url'
+
+## ~~~~~~~~~~~
+## completions
+## ~~~~~~~~~~~
+
+zplugins.load 'zsh-users/zsh-completions'
+
+## ----------
+## middle out
+## ----------
+
+zplugins.load-all-in plugins-extra
+zplugins.load-all-in plugins-trevorj
+
+## ~~~~~~~~
+## compinit
+## ~~~~~~~~
+zplugins.load-all-in zcompinit
+
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## plugins that must load past compinit
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+zplugins.load 'akatrevorjay/zsh-autopair'
+
+# zplugins.load 'zsh-users/zsh-syntax-highlighting'
+zplugins.load 'zdharma/fast-syntax-highlighting'
+

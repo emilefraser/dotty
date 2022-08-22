@@ -1,0 +1,16 @@
+
+##########################################
+############# SHELL OPTIONS ##############
+##########################################
+## http://wiki.bash-hackers.org/internals/shell_options
+shopt -s cdspell
+shopt -s dirspell
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s lithist
+shopt -s autocd
+shopt -s extglob
+shopt -s dotglob
+shopt -s globstar
+shopt -s nullglob
+shopt -o nounset

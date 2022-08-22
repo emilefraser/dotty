@@ -1,0 +1,93 @@
+[alias]
+  # One Character Shorthands
+  b = "!f() { git for-each-ref --color=always --sort='-committerdate:iso8601' --format='%(committerdate:relative)|%(objectname:short)|%(color:green)%(HEAD)%(color:reset) %(refname:short)' refs/heads | column -s '|' -t; }; f"
+  c = commit
+  d = diff  --color-words
+  g = !gitg
+  k = !gitk
+  l = log --graph --date=short
+  s = !git st
+
+  # Two Character Shorthands
+  cl = clone                    # clone
+  br = branch                   # branch
+  co = checkout                 # checkout
+  nb = !git co -b               # new branch
+  st = status -sb               # status in a concise manner
+  cp = cherry-pick              # cherry-pick is very log
+  # history of current HEAD
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+
+  # Nice log graph
+  graph = log --graph --oneline
+
+  # git-tools should open through git
+  visual = cola
+
+  # I forget too easily.
+  stage = add
+  unstage = reset HEAD --
+
+  undo = reset --soft HEAD~1    # undo your last commit
+  amend = commit --amend        # amend your last commit
+
+  diffc = diff --cached
+  pushf = push --force
+  pushit = push -u origin HEAD
+
+  # Make it easy to get the current upstream easily.
+  pullit = "!git sync"
+
+  whatadded = log --diff-filter=A  # which commit added this file
+
+  # Remotes from various places is useful to have
+  remote-add-gh = "!f() { git remote add $1 https://github.com/$2.git; }; f"
+  remote-add-bb = "!f() { git remote add $1 https://bitbucket.org/$2.git; }; f"
+  remote-add-gl = "!f() { git remote add $1 https://gitlab.com/$2.git; }; f"
+
+  # Checking out PRs should be easy
+  co-pr = "!f() { if [ -z ""$2"" ]; then echo 'Not enough arguments (git co-pr remote PR-number)'; return; fi; git fetch $1 ""pull/$2/head:pr/$2"" && git checkout ""pr/$2"";}; f"
+
+  # Because I'm usually bad at this
+  cleanup = "!f() { git branch --merged ${1-master} | grep -v "" ${1-master}$"" | xargs git branch -d; }; f"
+
+[apply]
+  whitespace = error
+
+[commit]
+  gpgsign = true
+
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+  editor = code -w
+  whitespace = trailing-space,cr-at-eol
+
+[diff]
+  algorithm = patience
+  tool = meld
+
+[gui]
+  editor = code -w
+  fontdiff = -family \"Source Code Pro\" -size -12 -weight normal -slant roman -underline 0 -overstrike 0
+  historybrowser = gitg
+
+[help]
+  autocorrect = 20
+
+[merge]
+  tool = meld
+  conflictstyle = diff3
+
+[push]
+  default = simple
+
+[user]
+    useConfigOnly = true
+
+[include]
+  path = ~/.gitconfig.local
+
+# Pro-tip: Makes life with submodules easier.
+# [url "git@github.com:yourname/"]
+#   insteadOf = "git://github.com/yourname/"

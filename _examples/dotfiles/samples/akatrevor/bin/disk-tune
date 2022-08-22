@@ -1,0 +1,74 @@
+#!/bin/zsh
+set -eo pipefail
+set -xv
+
+[[ $UID -eq 0 ]] || exec sudo ${ZSH_ARGZERO:A} "$@"
+
+tune-sys() {
+    echo "- [sys:vm]"
+    echo 5 | tee /proc/sys/vm/dirty_background_ratio
+    echo 20 | tee /proc/sys/vm/dirty_ratio
+    echo 50 | tee /proc/sys/vm/vfs_cache_pressure
+    echo $(( 256 * 1024 )) | tee /proc/sys/vm/min_free_kbytes
+    echo 1 | tee /proc/sys/vm/zone_reclaim_mode
+
+    echo always | tee /sys/kernel/mm/transparent_hugepage/enabled
+    echo always | tee /sys/kernel/mm/transparent_hugepage/defrag
+}
+
+tune-zfs() {
+    echo $(( 4 * 1024 * 1024 )) | tee /sys/module/zfs/parameters/zfs_max_recordsize
+    # echo $(( 1024 * 1024 )) | tee /sys/module/zfs/parameters/zfs_read_chunk_size
+    echo $(( 1280 * 1024 )) | tee /sys/module/zfs/parameters/zfs_read_chunk_size
+    echo $(( 256 * 1024 )) | tee /sys/module/zfs/parameters/zfs_vdev_aggregation_limit
+}
+
+tune-zfs-ssd() {
+    echo 1 | tee /sys/module/zfs/parameters/zfs_prefetch_disable
+}
+
+tune-disk() {
+    local d=${1:?}
+    echo "- [$d] "
+
+    set-disk-iosched $d
+
+    echo 4096 | tee $d/queue/nr_requests || :
+    echo 4096 | tee $d/queue/read_ahead_kb || :
+
+    # echo 256 | tee $d/queue/max_sectors_kb || :
+    # hw raid: look ag sg_tablesize too, set high.
+    echo 1024 | tee $d/queue/max_sectors_kb || :
+}
+
+set-disk-iosched() {
+    local d=${1:?}; shift 1
+    local q=$d/queue
+    local s=$q/scheduler
+    local is_rot=$d/is_rotational
+
+    # bfq low latency is pretty rad but I don't have it everywhere.
+    # kyber bfq
+    [ $# -gt 0 ] || set -- cfq noop mq-deadline deadline
+    local qprio=("$@")
+
+    echo -n "[iosched] current=$(<$s) now="
+
+    local q
+    for q in $qprio; do
+	grep $q $s >/dev/null || continue
+	echo $q | tee $s
+	break
+    done
+}
+
+main() {
+    modprobe -a mq-deadline kyber-iosched bfq || :
+
+    local d
+    for d in /sys/block/*; do
+    	tune-disk $d
+    done
+}
+
+main "$@"

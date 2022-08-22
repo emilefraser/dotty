@@ -1,0 +1,11 @@
+### IMPORT WF STEP ###
+
+
+# Plugins --------------------------
+plugins: [chroma]
+
+chroma:
+    auto: no
+    
+acoustid:
+    apikey: jOncHR31mw

@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+setopt err_exit err_return pipe_fail
+setopt verbose xtrace
+setopt extended_glob null_glob
+
+function e() { echo "[$0]" "$@" >&2; }
+
+function usage() {
+	echo "Usage: $0:t MATCH_DEV_BY_ID BACKUP_BIN" >&2
+	exit 1
+}
+
+[[ $# -eq 2 ]] || (usage ; exit 1)
+
+match_dev=${1:?}
+dev_backup=${2:?}
+
+devs=(/dev/disk/by-id/$match_dev^*-part*)
+
+for d in $devs; do
+	e "Restoring partition table backup=\"$dev_backup\" to \"$d\""
+	sgdisk -l $dev_backup $d
+	e "Randomizing GUIDs on \"$d\""
+	sgdisk -G $d
+done
+

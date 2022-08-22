@@ -1,0 +1,70 @@
+#!/bin/zsh
+# set -eo pipefail
+
+# val=$(udevadm info -a -n /dev/dri/card1 | grep boot_vga | rev | cut -c 2)
+# cmd="WLR_DRM_DEVICES=card$val sway"
+
+# first card is for rendering, second gets buffers copied to it for it's monitors.
+# export WLR_DRM_DEVICES=card1:card0
+export WLR_DRM_DEVICE=card1
+
+
+# #
+# # Whether to not preload libgtk3-nocsd.so.0 even if GTK_CSD=0
+# #
+# # If this setting is set to 1, LD_PRELOAD and GTK_CSD will not be
+# # touched upon session startup.
+# #
+# # Tons of things break with gdk atm
+# GDK_BACKEND=wayland
+#
+# ## Disable client side deco
+# #export GTK_CSD=0
+# #export GTK3_NOCSD_IGNORE=0
+#
+# # Sigh, this one too.
+# QT_QPA_PLATFORM=wayland-egl
+# #QT_QPA_PLATFORM=wayland
+# CLUTTER_BACKEND=wayland
+# SDL_VIDEODRIVER=wayland
+
+# export QT_QPA_PLATFORM=wayland
+# # Qt will also draw client-side decorations for all windows, disable that:
+# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+#
+# # or say wayland_shm
+# ECORE_EVAS_ENGINE=wayland_egl
+# ELM_ENGINE=wayland
+#
+# export GDK_BACKEND QT_QPA_PLATFORM CLUTTER_BACKEND SDL_VIDEODRIVER ECORE_EVAS_ENGINE ELM_ENGINE
+
+# KWIN_TRIPLE_BUFFER=1
+# OR, NOT AND
+# __GL_YIELD="USLEEP"
+# export KWIN_TRIPLE_BUFFER __GL_YIELD
+
+SWAY_CURSOR_THEME=Obsidian
+SWAY_CURSOR_SIZE=48
+
+export SWAY_CURSOR_THEME SWAY_CURSOR_SIZE
+
+# #XKB_DEFAULT_RULES=evdev
+# #XKB_DEFAULT_MODEL=apple
+# # XKB_DEFAULT_MODEL=pc101
+# XKB_DEFAULT_MODEL=pc104
+# XKB_DEFAULT_LAYOUT=us
+# XKB_DEFAULT_VARIANT=workman
+# #XKB_DEFAULT_OPTIONS='lv5:caps,switch lock.misc:extend,compose:menu,grp:shifts_toggle'
+# XKB_DEFAULT_OPTIONS='misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,grp_led:caps,compose:menu,terminate:ctrl_alt_bksp'
+
+# export XKB_DEFAULT_RULES XKB_DEFAULT_MODEL XKB_DEFAULT_LAYOUT XKB_DEFAULT_OPTIONS XKB_DEFAULT_VARIANT
+
+
+# https://wiki.archlinux.org/index.php/ATI#Dynamic_power_management
+#export LIBVA_DRIVER_NAME=vdpau
+#export VDPAU_DRIVER=r600
+
+
+# vim: set ts=4 sw=4 tw=120 et ft=sh :
+

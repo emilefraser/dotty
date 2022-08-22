@@ -1,0 +1,164 @@
+cd restore
+ls
+cd 20190919
+cd 
+c initialsh
+c initial.sh
+micro initial.sh 
+q
+debug_h1 "Hello"
+q
+debug_h1
+debug_h1 "hello"
+q
+quit
+exit
+debug-h
+debug-h1 "Hello"
+bb=$((10 + 20 ))
+cc=$bb
+echo $cc
+echo $bb
+exit
+debug-h1 "Hello"
+q
+debug-h1 "hello"
+pkg install figlet
+pkg i python
+pip install powerline-shell
+ls
+cd 
+cd con
+cd .config
+ls
+chmod 777 powerline-shell/ -r
+pip intstall powerline-shell
+pip install powerline-shell
+ls
+mkdir powerline-shell
+cd powerline-shell/
+micro config.json
+ls
+cd .
+.
+..
+cd
+debug-h1 "hello"
+w3m
+pkg install w3m
+q
+debug-h1 "Hello"
+q
+debug-h1 "hello"
+q
+debug-h1 "hello"
+q
+debug-h1 "hello"
+q
+debug-1 "Hello"
+debug-h1 "Hello"
+debug-h "Hello"
+debug-h1 "Hello"
+debug-h1 "My name is slim shady"
+s
+ls
+cp .bashrc /storage/466C-6F22/shell/config
+cp .bashrc /storage/466C-6F22/shell/dotfiles
+ls
+sudo cp .bashrc /storage/466C-6F22/shell/dotfiles
+for i in $(seq 10); do echo -n '+'; done
+$end=10
+end=10
+for i in $(seq end); do echo -n '+'; done
+for i in $(seq $end); do echo -n '+'; done
+for i in $(seq $end); do echo -n "#"; done
+for i in $(seq $end); do echo -n '+'; done
+$tchar="#"
+tchar="#"
+for i in $(seq $end); do echo -n $tchar; done
+echo --help
+for i in $(seq $end); do echo -n $tchar; done
+echo "g"*50
+echo 'g'*50
+echo -$___{1..10} | tr -d ' '
+head -c 58 </dev/zero | tr '\0' '-'
+printf -v sep '%*s' 58 ;
+head -c 58 </dev/zero | tr '\0' '-'
+head -c 58  | tr '\0' '-'
+head -c 58 </dev/zero | tr '\0' '-'
+end=27
+head -c $endv </dev/zero | tr '\0' '-'
+head -c $end </dev/zero | tr '\0' '-'
+tchar="#"
+head -c $end </dev/zero | tr '\0' $tchar && 
+head -c $end </dev/zero | tr '\0' $tchar && head -c $end </dev/zero | tr '\0' '&'
+micro .bashrc
+cd setu
+ls
+./p01_su.sh 
+pkg update
+apt-key adv --recv 5AAAC9E0A46BE53C
+./p02_core.sh 
+micro p02_core.sh 
+ls
+cd
+cd tools
+ls
+cd toolsx
+ls
+..
+rm -rg toolx
+rm -rf toolx
+rm toolx
+rmdir toolx
+ls
+rm smloadr
+..
+rm smloadr
+..
+l
+rm -rf toopx
+rm -rf smloadr
+ls
+cd ..
+ls
+BUSRC=~
+BUDEST=~
+cd ..
+ls
+sudo tar -cvf $BUDEST/$BUFILE -g $BUSNAP $BUSRC
+tar -cvf $BUDEST/$BUFILE -g $BUSNAP $BUSRC
+cd 
+ls
+rm ter* 
+ls
+del
+rm
+cd ..
+ls
+m ~/.termux/termux.properties
+micro ~/.termux/termux.properties
+cd .termux
+ls
+cd 
+ls -la
+cd .termux/
+ls
+cat termux.properties 
+
+termux-reload-settings
+exit
+cd setu
+ls
+cd ..
+c .bashrc
+exut
+exit
+cd .termux
+ls
+micro termux.properties 
+exit
+ls
+rm termux
+rm termux-20190924_151813.tar.gz 
+exit

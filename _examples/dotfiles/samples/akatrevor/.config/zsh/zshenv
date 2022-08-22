@@ -1,0 +1,246 @@
+#!/bin/zsh
+# /etc/zsh/zshenv: system-wide .zshenv file for zsh(1).
+#
+# This file is sourced on all invocations of the shell.
+# If the -f flag is present or if the NO_RCS option is
+# set within this file, all other initialization files
+# are skipped.
+#
+# This file should contain commands to set the command
+# search path, plus other important environment variables.
+# This file should not contain commands that produce
+# output or assume the shell is attached to a tty.
+#
+# Global Order: zshenv, zprofile, zshrc, zlogin
+
+#: ${ZSH_PROFILE:=1}
+#: ${ZSH_SOURCETRACE:=1}
+
+[[ $ZSH_PROFILE != 1 ]] || zmodload zsh/zprof
+[[ $ZSH_SOURCETRACE != 1 ]] || setopt sourcetrace
+
+module_path+=( ~/.zplugin/{mod-,}bin/zmodules/Src )
+zmodload zdharma/zplugin
+
+# XDG defaults
+if (( ${+commands[xdg-user-dirs-update]} )); then
+	xdg-user-dirs-update
+	source ${XDG_CONFIG_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}}/user-dirs.dirs
+fi
+
+: ${XDG_CONFIG_HOME:=$HOME/.config}
+: ${XDG_CACHE_HOME:=$HOME/.cache}
+: ${XDG_DATA_HOME:=$HOME/.local/share}
+: ${XDG_RUNTIME_HOME:=$HOME/.tmp}
+
+declare -xm 'XDG_*'
+
+# TODO hooks for plugins to register env-time changes.
+
+# zsh
+: ${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}
+: ${LOCAL_ZDOTDIR:=$HOME/.local/zsh}
+: ${ZSH_CACHE_DIR:=$XDG_CACHE_HOME/zsh}
+ZDOTDIRS=({$ZDOTDIR,$LOCAL_ZDOTDIR}(-/N))
+declare -x 'ZDOTDIR'
+declare -xm 'ZSH_*'
+
+[[ -d $ZDOTDIR ]] || echo Error: ZDOTDIR=${(q)ZDOTDIR} does not exist. >&2
+
+# env
+: ${SHORT_HOSTNAME:=${HOST%%.*}}
+: ${SHORT_HOSTNAME:=unknown}
+
+#: ${DE:=generic}
+: ${BROWSER:=x-www-browser}
+: ${EDITOR:=nvim}
+: ${PAGER:=less -RWX}
+: ${S_COLORS:=auto}
+declare -xm DE BROWSER EDITOR PAGER S_COLORS
+
+# case ${XDG_CURRENT_DESKTOP:-$DE} in
+# 	KDE|GNOME) ;;
+# 	*)  : ${QT_QPA_PLATFORMTHEME:=qt5ct}
+# 		export QT_QPA_PLATFORMTHEME
+# 		;;
+# esac
+
+case $TERM:l in
+	xterm|screen)
+		if [[ $(echotc Co) -ge 256 ]]; then
+			TERM=$TERM-256color
+
+			# There isn't really a way to test for this :/
+			COLORTERM=truecolor
+		fi
+		;;
+esac
+
+# Go
+: ${GOPATH:=$HOME/go}
+export GOPATH
+
+# Nim(rod)
+# : ${NIM_HOME:=$HOME/build/Nim}
+# export NIM_HOME
+
+# Dart
+: ${DART_HOME:=/usr/lib/dart}
+export DART_HOME
+
+##
+## path
+##
+
+autoload -Uz \
+	fix-path-order fix-fpath-order \
+	add-prefix-paths add-suffix-paths \
+	source-with-force \
+	call-many
+
+if [[ -z $manpath ]] && (( ${+commands[manpath]} )); then
+	MANPATH=$(manpath)
+fi
+
+#function prefix-array() {
+#	 local name=PREFIX_$1
+#	 typeset -U $name
+#}
+
+# Dedupe entries
+typeset -U {,f,man,info,cd}path
+
+prefix_path=(
+	# user
+	$HOME{,/crypt}/bin
+	${^ZDOTDIRS}/bin
+
+	${GOPATH:+$GOPATH/bin}
+
+	$HOME/.nimble/bin
+	${NIM_HOME:+$NIM_HOME/bin}
+
+	$HOME/.cargo/bin
+
+	$HOME/.gem/ruby/*/bin(N-/)
+
+	${DART_HOME:+$DART_HOME/bin}
+)
+
+prefix_fpath=(
+	${^ZDOTDIRS}/{functions,completions}
+)
+
+path=(
+	${prefix_path[@]}
+	${path[@]}
+)
+
+fpath=(
+	${(@)prefix_fpath}
+	${(@)fpath}
+)
+
+#manpath=(
+#	 ${(@)manpath}
+#)
+
+#infopath=(
+#	 ${(@)infopath}
+#)
+
+declare -xm '*path'
+
+# OS specifics
+case ${OSTYPE:l} in
+	linux*)
+		#add-prefix-paths $HOME/.linuxbrew
+		add-prefix-paths $HOME/.local
+
+		prefix_path+=(
+			# ccache
+			# /usr/lib/ccontrol
+			/usr/lib/ccache
+
+			/snap/bin
+		)
+
+		path=(
+			${(@)path}
+
+			/usr/{local/,}share/bcc/tools
+		)
+
+		;;
+	darwin*)
+		add-prefix-paths /usr/local
+
+		prefix_path+=(
+			# ccache
+			/usr/local/opt/ccache/libexec
+		)
+
+		path=(
+			# Make sure gnubin is before usr/local. For most things, that is. OSX is hilarious!
+			# gnu by default
+			${(@)path#/usr/local*}
+
+			/usr/local/libexec/gnubin
+			/usr/local/opt/coreutils/libexec/gnubin
+
+			${(@)path}
+
+			/usr/share/bcc/tools
+		)
+
+		manpath=(
+			/usr/local/man
+
+			/usr/local/opt/coreutils/libexec/gnuman
+
+			${(@)manpath}
+		)
+
+		function () {
+			for idx in ${fpath[(i)/usr/local/share/zsh/site-functions]}; do
+				fpath[$idx]=()
+			done
+		}
+
+		function () {
+			# Mac OS X uses path_helper to preload PATH from "/etc/paths.d".
+			# Unfortunately it also reorganizes your PATH according to how it sees fit,
+			# so let's change that to just be a suffix. It gets deduped anyway.
+			if [[ -x /usr/libexec/path_helper ]]; then
+				local out="$(PATH='' /usr/libexec/path_helper -s)"
+				# We only care about the path portion of the declare statement anyway, so snag and split.
+				local out_paths=(${(s.:.)${out#*\"}%\"*})
+				# Append to path
+				path+=(${(@)out_paths})
+			fi
+		}
+
+		;;
+esac
+
+path=(${(@)prefix_path} ${(@)path})
+
+fpath+=(
+	/usr/local/share/zsh/vendor-completions
+	/usr/local/share/zsh/site-functions
+
+	/usr/share/zsh/vendor-completions
+	/usr/share/zsh/site-functions
+)
+
+# Fix common order mishaps across OSes
+fix-path-order
+fix-fpath-order
+
+##
+## local
+##
+
+source-with-force ${^ZDOTDIRS:#$ZDOTDIR}/zshenv(-.N)
+
+# EOF

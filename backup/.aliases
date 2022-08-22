@@ -1,0 +1,860 @@
+#######################################
+#             GENERAL                 #
+#######################################
+
+## METADATA
+
+### ~/.aliases
+### All aliasses used by bash for all ENVIRONMENTS
+
+
+###############################################
+#           TERMINAL EXECUTIONS               #
+###############################################
+
+## EXECUTE
+
+### General Execution
+
+alias cls='clear'
+alias e='logout'
+alias eb='exec bash'
+alias execb='exec bash'
+alias execbash='exec bash'
+alias q='exit'
+alias x='exit'
+
+## ENVIRONMENT
+
+### Reloading environment
+
+alias reload='source ~/.bashrc'
+
+## HISTORY
+
+### Get Historical Commands
+
+alias hi='history'
+alias hiref='echo -n "Refreshing history... "; hcln; history -c; history -r; echo "done."'
+alias hist='history'
+alias hitop='history | awk "{ print $2 }" | sort | uniq -c | sort -rn | head'
+
+
+
+#######################################
+#             DIRECTORIES             #
+#######################################
+
+## NAVIGATE
+
+### Navigate to Folder
+
+alias gohome='cd $HOME'
+alias home='cd $HOME'
+
+### Navigate Down
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+
+## LIST
+
+### Directory
+
+alias dir='dir --color=yes'
+alias vdir='vdir --color=yes'
+
+### List Files
+
+alias l='ls --color=yes'
+alias l.='ls -d .* --color=yes'
+alias la='ls -la --color=yes'
+alias lh='ls -lh --color=yes'
+alias lha='ls -lha --color=yes'
+alias ll='ls -l --color=yes'
+alias lla='ls -lA --color=yes'
+alias llah='ls -lha --color=yes'
+alias llha='ls -llhA --color=yes'
+alias lm='la | more color=yes'
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
+alias ls='ls --color=yes'
+alias lsa='ls --all --color=yes'
+alias lsd='ls -d */ --color=yes'
+alias lsh='ls -lh --color=yes'
+alias lsla='ls --all --list --color=yes'
+alias lx='ll -BX --color=yes'
+alias lz='ll -rS --color=yes'
+
+alias lsfiles='for f in *; do [[ -f "$f" ]] && ls -- "$f"; done'
+
+## INFO 
+
+### Current Directory
+
+alias p='pwd'
+ 
+## EVENTS AND ACTIONS
+
+### Directory Event
+
+alias watch='watch --color=yes'
+alias cower='cower --color=yes'
+alias watd='watch -d du --summarize'
+
+### Directory Actions
+
+alias rmdir='sudo rm -rf'
+alias rf='sudo rm -rf'
+
+### Root safety
+
+alias rm='rm -I --preserve-root'
+
+
+#######################################
+#        RIGHTS & PERMISIONS          #
+#######################################
+
+## RIGHTS
+
+### Object Rights
+
+alias chmodall='sudo chmod 777 *'
+alias chmodallr='sudo chmod -R 777 *'
+
+### Object Ownership
+
+alias chownall='sudo chown $(whoami) *'
+alias chownallall='sudo chown $(whoami):$(whoami) *'
+alias chownallr='sudo chown -R $(whoami) *'
+alias chownallallr='sudo chown -R $(whoami):$(whoami) *'
+
+## USER
+
+### Superuser
+
+alias ssudo='sudo su '
+alias root='sudo -i'
+alias su='sudo -i'
+
+### Privileged access
+#if [ $UID -ne 0 ]; then
+#    alias sudo='sudo '
+#    alias scat='sudo cat'
+#    alias svim='sudo vim'
+#    alias root='sudo su'
+#    alias reboot='sudo reboot'
+#    alias halt='sudo halt'
+#    alias netcfg='sudo netcfg2'
+#    fi            
+
+## FILE
+
+### Create executable
+
+alias exe='chmod a+x' 
+
+
+##################################################
+#                 PROCESSES                      #
+##################################################
+
+## PROCESS
+
+### Actively running
+
+alias psg='ps -ef | g '
+
+## JOBS
+
+### Currently Running
+
+alias j='jobs'
+
+## ALERTS
+
+### Create alert
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias alert2='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s* alert$//'\'')"'
+
+
+
+##################################################
+#           PACKAGE MANAGEMENT                   #           
+##################################################
+
+## APT
+
+### General
+
+alias aptrepoadd='sudo add-apt-repository'
+alias aptupdate='sudo apt-get -y update'
+alias aptupgrade='sudo apt-get -y upgrade'
+alias aptuu='sudo apt-get -y update && sudo apt-get -y upgrade'
+alias aptuuc='sudo apt-get update && sudo apt-get upgrade && sudo apt-get clean'
+alias aptclean='sudo apt-get clean && sudo apt-get autoclean && sudo apt-get dist-clean && sudo apt-get autoremove'
+alias aptautoremove='sudo apt autoremove'
+alias aptpurge='sudo apt-get purge'
+alias aptcheck='sudo apt-get check'
+alias aptlist='sudo apt list'
+alias aptsearch='sudo apt search'
+alias aptinstall='sudo apt-get -y install'
+alias aptreinstall='sudo apt -y reinstall'
+alias aptremove='sudo apt -y remove'
+alias aptshow='sudo apt show'
+
+## DPKG
+
+### General
+
+alias pginstall='sudo dpkg --install'
+alias pkgsearch='sudo dpkg --search'
+alias pkgstatus='sudo dpkg --status'
+alias pkgremove='sudo dpkg --remove'
+alias pkgpurge='sudo dpkg --purge'
+alias pkglist='sudo dpkg --list'
+alias pkglistfiles='sudo dpkg --listfiles'
+alias pkgaudit='sudo dpkg --audidt'
+alias pkgverify='sudo dpkg --verify'
+alias pkgconfigure='sudo dpkg --configure'
+
+
+
+######################################
+#        HARDWARE MONITORING         #
+######################################
+
+## MEMORY
+
+### pass options to free
+
+alias meminfo='free -m -l -t'
+ 
+### get top process eating memory
+
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## CPU
+
+### get top process eating cpu
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+ 
+### Get server cpu info
+alias cpuinfo='lscpu'
+ 
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+
+## GPU
+
+## get GPU ram on desktop / laptop
+
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
+
+##################################################
+#                    STORAGE                     #
+##################################################
+
+## USAGE
+
+### Storage Usage
+
+alias dc='sudo du -all | cut -d/ -f2 | sort | uniq -c | sort -nr'
+alias df='sudo df --human-readable'
+alias du='sudo du -all --human-readable | sort --human-numeric-sort'
+alias du0='sudo du -all --human-readable --max-depth=0 | sort --human-numeric-sort'
+alias du1='sudo du --all --human-readable --max-depth=1 | sort --human-numeric-sort'
+alias du2='sudo du --all --human-readable --max-depth=2 | sort --human-numeric-sort'
+alias du3='sudo du --all --human-readable --max-depth=3 | sort --human-numeric-sort'
+alias dus='sudo du --human-readable --summarize'
+alias duS='sudo du --human-readable -sk * | sort -n'
+
+
+######################################
+#           NETWORKING               #
+######################################
+
+
+## INFO
+
+### Get open ports
+
+alias port='netstat -tulanp'
+alias ports='netstat -tulanp'
+
+### Get iptables
+
+alias ipt='sudo /sbin/iptables'
+ 
+### Gets iptables rules
+
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+alias firewall=iptlist
+
+### INTERFACES
+
+### All of our servers eth1 is connected to the Internets via vlan / router etc  ##
+
+alias dnstop='dnstop -l 5  eth1'
+alias vnstat='vnstat -i eth1'
+alias iftop='iftop -i eth1'
+alias tcpdump='tcpdump -i eth1'
+alias ethtool='ethtool eth1'
+ 
+### Only useful for laptop as all servers are without wireless interface
+
+alias iwconfig='iwconfig wlan0'
+
+## WAN
+
+### Info on online objects
+alias arp-clear='ip -s -s neigh flush all'
+alias connections='sudo lsof -n -P -i +c 15'
+alias curllo='curl LO'
+alias ip='ip -c'
+alias openports='netstat --all --numeric --programs --inet --inet6'
+alias pg='ps -Af | grep $1'
+alias pilocal='ssh pi@192.168.0.16'
+alias ping='ping -c 5'
+
+
+######################################
+#            TEXT OUTPUT             #
+######################################
+
+## READS
+
+### Terminal Output
+
+alias cat='sudo cat'
+alias c='sudo cat'
+alias diff='diff --color=auto'
+alias free='free -mlt'
+#alias egrep='egrep --color=yes'
+alias fgrep='fgrep --color=yes'
+alias grep='grep --color=yes'
+alias more='less'
+
+### Text Editor
+
+alias nano='sudo nano -mw'
+alias n='sudo nano -mw'
+alias v='sudo vim'
+alias vi='sudo vim'
+alias vim='sudo vim'
+
+### File Creation
+alias t='touch'
+
+## LOGS
+
+### Logging
+
+#alias dmesg='dmesg --color=yes'
+alias top='htop'
+
+
+###############################################
+#                   COMPRESSION               #
+###############################################
+
+## DECOMPRESS
+
+### Links to the funcion `extract` in ~/.functions filename
+
+alias decompress='extract'
+alias extract='extract'
+alias uncompress='extract'
+alias unrar='extract'
+alias untar='extract'
+alias unzip='extract'
+
+## COMPRESS
+
+### Links to the funcion `compress` in ~/.functions filename
+
+alias 7zme='compress'
+alias comp='compress'
+alias compress='compress'
+alias tarme='compress'
+alias zipme='compress'
+
+
+###############################################
+#                DEVELOPMENT                  #
+###############################################
+
+## LANGUAGE SPECIFIC
+
+### Python
+
+alias py='python3'
+alias py2='python2'
+alias py3='python3'
+alias pip='pip'
+alias pip2='pip2'
+alias pip3='pip'
+alias ipy='ipython'
+
+### Perl
+
+alias pl='perl'
+
+### Go
+
+alias gg='go get'
+
+
+###############################################
+#         VERSION AND SOURCE CONTROL          #
+###############################################
+
+## GIT
+
+### Init Repo
+
+alias gitinit='git init --bare'
+alias ginit='git init --bare'
+
+### Info Repo
+
+alias gitstatus='clear; git status -s'
+alias gitshow='git show'
+alias gshow='git show'
+alias gst='clear; git status -s'
+alias gstat='clear; git status -s'
+
+### Remote
+
+alias gre='git remote -v'
+alias gitremote='git remote -v'
+alias gitremoteget='git remote -v'
+
+### Config
+
+alias gitcon='git config --list'
+alias gitconf='git config --list'
+alias gitconfig='git config --list'
+alias gitconfigglobal='git config --list --global'
+alias gitconglob='git config --list --global'
+alias gitconfigsystem='git config --list --local'
+alias gitconsys='git config --list --system'
+alias gitconfiglocal='git config --list --local'
+alias gitconloc='git config --list --local'
+alias gitconfigglobaledit='git config --edit --global'
+alias gitconglobed='git config --edit --global'
+alias gitconfigsystemedit='git edit --list --local'
+alias gitconsysed='git edit --list --system'
+alias gitconfiglocaledit='git edit --list --local'
+alias gitconloced='git config --edit --local'
+
+### Branches
+
+alias gbranchdelete='git branch --delete'
+alias gbranchlist='git branch list --all'
+alias gbranchrm='git branch --delete'
+alias gitbranchdelete='git branch --delete'
+alias gitbranchlist='git branch list --all'
+alias gitbranchrm='git branch --delete'
+alias gitswitch='git switch'
+alias gswitch='git switch'
+
+### Checkouts
+
+alias gitcheckout='git checkout --branch'
+alias gcheckout='git checkout --branch'
+
+### Differences
+
+alias gdiff='git diff'
+alias gitdiff='git diff'
+
+### Getting
+
+alias gcla='git clone'
+alias gclf='git clone'
+alias gcl='git clone --depth=1'
+alias gclone='git clone --depth=1'
+alias gcloneall='git clone'
+alias gcloneshal='git clone --depth='
+alias gfetch='git fetch'
+alias gitclone='git clone --depth=1'
+alias gitcloneall='git clone'
+alias gitclonefull='git clone'
+alias gitpull='clear; git pull origin master'
+alias gpull='clear; git pull origin master'
+alias gitfetch='git fetch'
+alias gitcloneshallow='git clone --depth='
+
+### Setting
+
+alias gadd='git add *'
+alias gcom='git commit -a -m'
+alias gdel='git remove'
+alias gitadd='git add *'
+alias gitcomm='git commit -a -m'
+alias gitcommit='git commit -a -m'
+alias gitdel='git remove'
+alias gitpush='git push origin master'
+alias gitrm='git remove'
+alias gpush='git push origin master'
+alias grm='git remove'
+
+### Rollbacks
+
+alias gitreset='git reset --hard'
+alias greset='git reset --hard'
+
+### Logging
+
+alias glog='git log'
+alias gitlog='git log'
+
+
+##################################################
+#                     DOCKER                     #
+##################################################
+
+## EXECUTABLE
+
+### Docker
+
+alias doc='docker'
+
+## ACTIONS
+
+### General 
+
+alias drun='docker run -it $1 $2' 
+alias dexec='docker exec $1 $2' 
+alias dins='docker inspect $1'
+alias dps='docker ps --filter="label=$1" --format="{{.ID}}"'
+
+## ELEMENTS
+
+### Containers
+
+alias dcon='docker container ls -a'
+alias dconls='docker container ls'
+alias dconla='docker container ls -a'
+alias dconrm='docker container rm'
+alias dconrmex='docker rm $(docker ps --all -q -f status=exited)'
+
+### Volumes
+
+alias dvolls='docker volume ls'
+alias dvolla='docker volume ls -a'
+
+# Networks
+alias dnetls='docker network ls'
+alias dnetla='docker network ls -a'
+
+## OUTPUT
+
+### Logs
+
+alias dlog='docker logs -f $1'
+
+## ORCHESTRATION
+
+### Docker-Compose
+
+alias doco='docker-compose $*'
+alias docoup='docker compose up -d'
+alias docouplog='docker compose up'
+alias docodown='docker compose down'
+
+
+##################################################
+#                  KUBERNETES                    #
+##################################################
+
+## SUMMARY OF COMMANDS
+
+## EXE
+### k/kc/kube       =   kubectl
+
+## GENERAL
+###     conf        =   config
+###     info        =   info
+
+## ACTIONS
+###     ap          =   kubectl apply <object> (ap, apf, apl)
+###     rm          =   kubectl delete <resource> (rmf,rml)
+###     RM          =   kubectl drain <node>
+###     des         =   kubectl describe <resource> (des, desl)
+###     upd         =   kubectl edit <resource>
+###     ex          =   kubectl exec -i -t
+###     get         =   kubectl get <resource>
+###     kus         =   kubectl kustomize
+###     log         =   kubectl logs <podname> (log, logf)
+###     prox        =   kubectl proxy
+
+## RESOURCES
+###     cl          =   cluster
+###     no          =   node
+###     po          =   pod
+###     dep         =   deployment
+###     ing         =   ingress
+###     svc         =   service
+###     cm          =   configmap
+###     prox        =   proxy
+###     sec         =   secret
+###     ns          =   namespace
+###     cj          =   cronjobs
+###     cr          =   cluster roles
+###     crb         =   clhster role binding
+###     csir        =   certificate signing ingress request
+ 
+## FLAGS
+###     all         =   --all or --all-namepaces
+###     out         =   --output= (o)
+###     rec         =   --recursive (r)
+###     slab        =   --show-labels   (sl)
+###     sys         =   --namespace kube-system
+###     wat         =   --watch(w)
+
+## VALUE FLAGS (at end)
+###     ns          = --namespace (n)
+###     fn          = --filename
+###     sel         = --selector
+
+## OUTPUT
+###     outjson     = --output=json
+###     outname     = --output=name output
+###     outyaml     = --output=yaml output
+###     outwide     = --output=wide output
+
+
+#FUNCTIONS (To DELETE WHEN FUNCTION MIGRATED)
+#kga<r>      # kubectl get --all-namespaces -o wide <resource>, e.g. kgap for kubectl --all-namespaces -o wide get pods
+#klf         # kubectl logs -f <podname>: i.e. watch logs live
+
+#kcon       # create configuration files
+#kdap       # delete all pods within a namespace
+#kdrain     # drain a node
+#kexec      # execute a command in a specified pod,
+           # default drops user into a shell
+#kfind      # use a regular expression to find items across everything except
+           # custom resources
+#kgpns      # Get just pod names in a namespace
+#kpfind     # Search through pods with regular expressions
+#krd        # restart a deployment
+#kstatus    # search across namespaces to find pods statuses
+
+## EXECUTABLES
+
+### Kubernetes
+
+alias k='kubectl'
+alias kc='kubectl'
+alias kube='kubectl'
+
+## INFO 
+
+### Configuration
+
+alias kinfo='kubectl cluster-info'
+alias kconf='kubectl config view'
+alias kconfig='kubectl config view'
+
+## ACTIONS
+
+### Apply
+
+alias kap='kubectl apply'
+alias kapk='kubectl apply -k'
+alias kapfrec='kubectl apply --recursive -f'
+alias kapfrecrsys='kubectl --namespace=kube-system apply --recursive -f'
+
+### Delete
+
+alias krm='kubectl delete'
+alias krmf='kubectl delete -f'
+alias krmsel='kubectl delete --selector='
+
+### Describe
+
+alias kdes='kubectl describe'
+alias kdessel='kubectl describe --selector='
+
+### Edit
+
+alias kupd='kubectl edit'
+alias kkus='kubectl kustomize'
+
+### Execute
+
+alias kex='kubectl exec -i -t'
+
+### Get
+
+alias kget='kubectl get'
+alias kgetall='kubectl get --all-namespaces'
+alias kgetsel='kubectl get --selector='
+
+### Log
+
+alias klog='kubectl logs'
+alias klogfn='kubectl logs -f'
+
+## Proxy
+
+alias kprox='kubectl proxy'
+
+## ELEMENTS
+
+### All
+
+alias kgetall='kubectl get --all-namespaces all'
+
+
+alias kgallwsloutwide='kubectl get --all-namespaces --watch --show-labels --output=wide'
+alias kgallw='kubectl get --all-namespaces --watch'
+alias kgwall='kubectl get --watch --all-namespaces'
+
+
+
+
+alias ksys='kubectl --namespace=kube-system'
+
+
+
+## Namespaces
+alias kgetns='kubectl get namespaces'
+alias kgetnsall='kubectl get namespaces --all-namespaces'
+
+alias kgetnsalloutjson='kubectl get namespaces --all-namespaces --output=json'
+alias kgetnsalloutyaml='kubectl get namespaces --all-namespaces --output=yaml'
+alias kgetnsalloutwide='kubectl get namespaces --all-namespaces --output=wide'
+
+
+alias kgetnsallsloutwide='kubectl get namespaces --all-namespaces --show-labels --output=wide'
+alias kgetnsallwoutyaml='kubectl get namespaces --all-namespaces --watch --output=yaml'
+
+#--selector=''
+#--label-columns='''
+
+
+alias kgetnsallslw='kubectl get namespaces --all-namespaces --show-labels --watch'
+alias kgetnsallslwoutwide='kubectl get namespaces --all-namespaces --show-labels --watch --output=wide'
+alias kgetnsallw='kubectl get namespaces --all-namespaces --watch'
+alias kgetnsallwoutjson='kubectl get namespaces --all-namespaces --watch --output=json'
+alias kgetnsallwoutwidesl='kubectl get namespaces --all-namespaces --watch --output=wide --show-labels'
+
+alias kgetnsallwsl='kubectl get namespaces --all-namespaces --watch --show-labels'
+alias kgetnsallwsloutwide='kubectl get namespaces --all-namespaces --watch --show-labels --output=wide'
+
+alias kgetnslsys='kubectl  get -l --namespace=kube-system '
+alias kgetnsoutjson='kubectl get namespaces --output=json'
+alias kgetnsoutwide='kubectl get namespaces --output=wide'
+alias kgetnsoutwideslall='kubectl get namespaces --output=wide --show-labels --all-namespaces'
+alias kgetnsoutwidesl='kubectl get namespaces --output=wide --show-labels'
+alias kgetnsoutyaml='kubectl get namespaces --output=yaml'
+alias kgetnsselk='kubectl get namespaces --selector='
+alias kgetnsslall='kubectl get namespaces --show-labels --all-namespaces'
+alias kgetnsslalloutwide='kubectl get namespaces --show-labels --all-namespaces --output=wide'
+alias kgetnsslallw='kubectl get namespaces --show-labels --all-namespaces --watch'
+alias kgetnsslallwoutwide='kubectl get namespaces --show-labels --all-namespaces --watch --output=wide'
+alias kgetnssl='kubectl get namespaces --show-labels'
+alias kgetnssloutwide='kubectl get namespaces --show-labels --output=wide'
+alias kgetnsslwall='kubectl get namespaces --show-labels --watch --all-namespaces'
+alias kgetnsslwalloutwide='kubectl get namespaces --show-labels --watch --all-namespaces --output=wide'
+alias kgetnsslwl='kubectl get namespaces --show-labels --watch -l'
+alias kgetnsslwoutwideall='kubectl get namespaces --show-labels --watch --output=wide --all-namespaces'
+alias kgetnsslwoutwidel='kubectl get namespaces --show-labels --watch --output=wide -l'
+alias kgetnssys='kubectl get namespaces --namespace=kube-system'
+alias kgetnssysoutyaml='kubectl get namespaces --namespace=kube-system --output=yaml'
+alias kgetnswall='kubectl get namespaces --watch --all-namespaces'
+alias kgetnswalloutjson='kubectl get namespaces --watch --all-namespaces --output=json'
+alias kgetnswalloutwidesl='kubectl get namespaces --watch --all-namespaces --output=wide --show-labels'
+alias kgetnswalloutyaml='kubectl get namespaces --watch --all-namespaces --output=yaml'
+alias kgetnswallsl='kubectl get namespaces --watch --all-namespaces --show-labels'
+alias kgetnswallsloutwide='kubectl get namespaces --watch --all-namespaces --show-labels --output=wide'
+alias kgetnswoutjsonall='kubectl get namespaces --watch --output=json --all-namespaces'
+alias kgetnswoutjson='kubectl get namespaces --watch --output=json'
+alias kgetnswoutjsonl='kubectl get namespaces --watch --output=json -l'
+alias kgetnswoutwideallsl='kubectl get namespaces --watch --output=wide --all-namespaces --show-labels'
+alias kgetnswoutwide='kubectl get namespaces --watch --output=wide'
+alias kgetnswoutwideslall='kubectl get namespaces --watch --output=wide --show-labels --all-namespaces'
+alias kgetnswoutwidesll='kubectl get namespaces --watch --output=wide --show-labels -l'
+alias kgetnswoutyamlall='kubectl get namespaces --watch --output=yaml --all-namespaces'
+alias kgetnswslall='kubectl get namespaces --watch --show-labels --all-namespaces'
+alias kgetnswslalloutwide='kubectl get namespaces --watch --show-labels --all-namespaces --output=wide'
+alias kgetnswsl='kubectl get namespaces --watch --show-labels'
+alias kgetnswsll='kubectl get namespaces --watch --show-labels -l'
+alias kgetnswsloutwideall='kubectl get namespaces --watch --show-labels --output=wide --all-namespaces'
+alias kgetnswsloutwide='kubectl get namespaces --watch --show-labels --output=wide'
+alias kgetnswsloutwidel='kubectl get namespaces --watch --show-labels --output=wide -l'
+
+
+alias kdesns='kubectl describe namespaces'
+alias kdnsall='kubectl describe namespaces --all-namespaces'
+alias kdns='kubectl describe namespaces'
+alias krmns='kubectl delete namespaces'
+
+alias krmns='kubectl delete namespaces'
+alias kupdns='kubectl edit namespaces'
+alias ksysdl='kubectl --namespace=kube-system describe -l'
+alias ksysrml='kubectl --namespace=kube-system delete -l'
+alias kdnsl='kubectl describe namespaces -l'
+alias krmnsl='kubectl delete namespaces -l'
+
+
+
+
+alias kgallwoutwidesl='kubectl get --all-namespaces --watch --output=wide --show-labels'
+alias kgallslwoutwide='kubectl get --all-namespaces --show-labels --watch --output=wide'
+alias kgwallsl='kubectl get --watch --all-namespaces --show-labels'
+alias kgslwall='kubectl get --show-labels --watch --all-namespaces'
+alias kgslallw='kubectl get --show-labels --all-namespaces --watch'
+alias kgallwsl='kubectl get --all-namespaces --watch --show-labels'
+alias kgallslw='kubectl get --all-namespaces --show-labels --watch'
+alias kgwalloutjson='kubectl get --watch --all-namespaces --output=json'
+alias kgwoutjsonall='kubectl get --watch --output=json --all-namespaces'
+alias kgallwoutjson='kubectl get --all-namespaces --watch --output=json'
+alias kgallwoutwide='kubectl get --all-namespaces --watch --output=wide'
+alias kgsloutwideall='kubectl get --show-labels --output=wide --all-namespaces'
+alias kgalloutwidesl='kubectl get --all-namespaces --output=wide --show-labels'
+alias kgoutwideallsl='kubectl get --output=wide --all-namespaces --show-labels'
+alias kgwalloutyaml='kubectl get --watch --all-namespaces --output=yaml'
+alias kgallwoutyaml='kubectl get --all-namespaces --watch --output=yaml'
+alias kgwoutyamlall='kubectl get --watch --output=yaml --all-namespaces'
+alias kgslw='kubectl get --show-labels --watch'
+alias kgallsl='kubectl get --all-namespaces --show-labels'
+alias kgwoutjson='kubectl get --watch --output=json'
+alias kgoutjsonall='kubectl get --output=json --all-namespaces'
+alias kgwoutwide='kubectl get --watch --output=wide'
+alias kgsloutwide='kubectl get --show-labels --output=wide'
+alias kgall='kubectl get --all-namespaces'
+alias kgwsloutwidel='kubectl get --watch --show-labels --output=wide -l'
+alias kgwoutwidesll='kubectl get --watch --output=wide --show-labels -l'
+alias krmall='kubectl delete --all'
+alias kgoutwide='kubectl get --output=wide'
+alias kgsl='kubectl get --show-labels'
+alias kgoutjson='kubectl get --output=json'
+alias kgslwoutwidel='kubectl get --show-labels --watch --output=wide -l'
+alias kgwsll='kubectl get --watch --show-labels -l'
+alias kgslwl='kubectl get --show-labels --watch -l'
+
+
+
+
+
+
+
+
+
+
