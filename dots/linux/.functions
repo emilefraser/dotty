@@ -1,13 +1,8 @@
-# ~/.functions 
-# All functions made available by the bash terminal (mostly onelines)
-
-## Rights
-function chs() {
-  sudo chmod 777 $1 $2
-}
+# ~/.functions
+# All functions made available to the bash terminal
 
 ## Directories
-function mkd () {
+function mkcd () {
   mkdir -p "$@" && cd "$@"
 }
 
@@ -53,3 +48,284 @@ function f() {
 function psa () {
     ps aux | grep $1
 }
+
+## la octal
+function lsoct () {
+  if [ -z ${1} ]; then
+    stat -c "%a %A %n" *
+  elif [ "$1" = h ]; then
+    stat -c "%a %A %n" .* *
+  else
+    stat -c "%a %A %n" "$1"
+  fi
+}
+
+# la count
+function lscnt () {
+  ls -ba "${1}" | wc -l
+}
+
+function lsperm () {
+ls -l | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
+         *2^(8-i));if(k)printf("%0o ",k);print}'
+}
+
+################################
+#          FILES               #
+################################
+
+# file prop
+function filebare () {
+    xfilebase=$(basename "${1}")
+    echo "${xfilebase%%.*}"
+}
+
+function fileext () {
+    echo "${1#*.}"
+}
+
+function filewext (){
+    echo "${1%*}"
+}
+
+function fileextlast () {
+    echo "${1##*.}"
+}
+
+function xfilebase () {
+    echo "${1##*/}"
+}
+
+function xfileparentpath () {
+    echo "${1%/*}"
+}
+
+function xfilebase2 () {
+    xbase="${1##*/}"
+    echo "${xbase%.*}"
+}
+
+function xfileext () {
+    xbase="${1##*/}"
+    echo "${xbase##*.}"
+}
+
+
+# file tree
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+#####################################
+#             ARCHIVE               #
+#####################################
+
+function extract {
+  # display usage if no parameters given
+  if [ -z "$1" ]; then
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+  else
+    for n in "$@"
+    do
+      if [ -f "$n" ] ; then
+          case "${n%,}" in
+            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+                                       tar xvf "$n"       ;;
+            *.lzma)                    unlzma ./"$n"      ;;
+            *.bz2)                     bunzip2 ./"$n"     ;;
+            *.cbr|*.rar)               unrar x -ad ./"$n" ;;
+            *.gz)                      gunzip ./"$n"      ;;
+            *.cbz|*.epub|*.zip)        unzip ./"$n"       ;;
+            *.z)                       uncompress ./"$n"  ;;
+            *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
+                                       7z x ./"$n"        ;;
+            *.xz)                      unxz ./"$n"        ;;
+            *.exe)                     cabextract ./"$n"  ;;
+            *.cpio)                    cpio -id < ./"$n"  ;;
+            *.cba|*.ace)               unace x ./"$n"     ;;
+            *)                         7z x ./"$n"        ;;
+          esac
+      else
+          echo "'$n' - file does not exist"
+          return 1
+      fi
+    done
+  fi
+}
+
+function compress() {
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "usage: compress <fullpath> <7z|tar|tar.bz2|tar.gz|tar.xz|zip>"
+    echo "       compress ~/home/Downloads/appfolder 7z"
+  else
+    outfilebase=$(basename "${1}")
+
+    case "${2}" in
+      7z|7zip)      7z a "${outfilebase}"."${2}" "${1}" ;;
+      tar)          tar -c -f "${outfilebase}"."${2}" "${1}" ;;
+      tar.gz|tgz)   tar -c -v -f -z "${outfilebase}"."${2}" "${1}" ;;
+      tar.bz2|tbz)  tar -c -v -j -S -f "${outfilebase}"."${2}" "${1}" ;;
+      tar.xz|txz)   tar -c -v -J -f "${outfilebase}"."${2}" "${1}" ;;
+      zip)          zip -r "${outfilebase}"."${2}" "${1}" ;; 
+      *)            echo      "Invalid compression format!"
+                    return 1 ;; 
+    esac
+  fi
+}
+
+# Compare original and gzipped file size
+function gz() {
+	local origsize=$(wc -c < "$1");
+	local gzipsize=$(gzip -c "$1" | wc -c);
+	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
+	printf "orig: %d bytes\n" "$origsize";
+	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
+}
+
+# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
+function targz() {
+	local tmpFile="${@%/}.tar";
+	tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
+
+	size=$(
+		stat -f"%z" "${tmpFile}" 2> /dev/null; # macOS `stat`
+		stat -c"%s" "${tmpFile}" 2> /dev/null;  # GNU `stat`
+	);
+
+	local cmd="";
+	if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+		# the .tar file is smaller than 50 MB and Zopfli is available; use it
+		cmd="zopfli";
+	else
+		if hash pigz 2> /dev/null; then
+			cmd="pigz";
+		else
+			cmd="gzip";
+		fi;
+	fi;
+
+	echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
+	"${cmd}" -v "${tmpFile}" || return 1;
+	[ -f "${tmpFile}" ] && rm "${tmpFile}";
+
+	zippedSize=$(
+		stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # macOS `stat`
+		stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
+	);
+
+	echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
+}
+
+
+##################################################
+#                  KUBERNETES                    #
+##################################################
+
+# Display help
+khelp () {
+
+case $1 in
+  commands|cmd|usage)
+    cat $KALIAS/docs/usage
+  ;;
+  resources|res)
+    cat $KALIAS/docs/resources
+    kubectl get customresourcedefinition | awk 'NR>1 {print $1}'
+  ;;
+  *)
+    echo "usage: khelp (cmd|res)"
+  ;;
+esac
+
+}
+
+
+# Search pods using regular expression
+kstatus () {
+
+  # Structured after stack exchange
+  iPOSITIONAL=()
+  while [[ $# -gt 0 ]]
+  do
+  key="$1"
+
+  case $key in
+    -C) 
+      kpfind Completed
+      shift
+      ;;
+    -c) 
+      kpfind CrashLoopBackOff
+      shift
+      ;;
+    -f) 
+      kpfind Failed
+      shift
+      ;;
+    -p) 
+      kpfind Pending
+      shift
+      ;;
+    -r) 
+      kpfind Running
+      shift
+      ;;
+    -s) 
+      kpfind Succeded
+      shift
+      ;;
+    -u) 
+      kpfind Unknown
+      shift
+      ;;
+    -h) 
+      echo "Usage: kstatus -[C|c|f|p|r|s|u]"
+      echo "  -C                           Completed"
+      echo "  -c                           CrashLoopBackOff"
+      echo "  -f                           Failed"
+      echo "  -p                           Pending"
+      echo "  -r                           Running"
+      echo "  -s                           Succeeded"
+      echo "  -u                           Unknown"
+      shift
+      ;;
+  esac
+  done
+  set -- "${POSITIONAL[@]}" # restore positional parameters
+
+}
+
+
+# TODO: Go through all resources.
+# Find a resource (e.g. a pod by name)
+kfind () {
+
+  # kubectl get all --all-namespaces | grep -i -E --color=always "${@}|$"
+  sed 1d $KRESOURCES | while read resource; do
+    kubectl get $resource --all-namespaces -o wide 2>/dev/null | \
+      $KALIAS/src/kfind.awk -v regex="${1}" -v resourcetype="${resource}"
+  done
+
+#   local custom=$(kubectl get customresourcedefinition)
+#   echo $custom | while read resource; do
+#     kubectl get "${resource}" --all-namespaces -o wide | \
+#       $KALIAS/src/kfind.awk -v regex="${1}" -v resourcetype="${resource}"
+  # done
+}
+

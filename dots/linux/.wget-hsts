@@ -1,0 +1,17 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+typora.io	0	1	1653803657	15552000
+gist.githubusercontent.com	0	0	1655932430	31536000
+api.github.com	0	1	1654637915	31536000
+kernel.ubuntu.com	0	0	1659051206	15768000
+gist.github.com	0	1	1654414382	31536000
+dev.mysql.com	0	0	1665787861	15768000
+raw.githubusercontent.com	0	0	1662537815	31536000
+cdn.kernel.org	0	0	1659040219	15768001
+gitlab.deeztek.com	0	0	1656625802	63072000
+curl.se	0	0	1654024295	31536000
+dl.winehq.org	0	0	1654884191	31536000
+github.com	0	1	1666377696	31536000
+dl.step.sm	0	1	1653586571	15724800
+download.technitium.com	0	0	1654933493	15768000
